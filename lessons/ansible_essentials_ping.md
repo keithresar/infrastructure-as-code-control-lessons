@@ -51,6 +51,41 @@ A successful response will be colored in green and look like the following:
 ```
 
 
+### 💪  Exercise 2.4 - Ansible Ping via Playbook
+
+We all agree that ad-hoc actions via the command line don't align to our mission.  
+No problem.  We can accomplish the same thing via an Ansible playbook.
+
+Change to the `2.4_ping/` directory.  Inside the directory you will find a the file `ping.yaml`.
+You can open this file if you'd like - but don't try to make too much sense of it yet.  We'll
+learn about all the part.
+
+Execute the file with the following command line to run the same test:
+
+```
+> ansible-playbook ping.yml
+```
+
+
+### ☢ Exercise 2.4 Results
+
+A successful response will look like the following:
+
+```
+TASK [Gathering Facts] ***********************************************************************************************************************************************************************************************************************************************************************************************************
+ok: [10.10.11.220]
+ok: [10.10.10.226]
+
+TASK [Verify host connectivity] **************************************************************************************************************************************************************************************************************************************************************************************************
+ok: [10.10.11.220]
+ok: [10.10.10.226]
+
+PLAY RECAP ***********************************************************************************************************************************************************************************************************************************************************************************************************************
+10.10.10.226               : ok=2    changed=0    unreachable=0    failed=0
+10.10.11.220               : ok=2    changed=0    unreachable=0    failed=0
+```
+
+
 ### 📗 Resources
 
  - [Ansible ping module](http://docs.ansible.com/ansible/latest/ping_module.html)
