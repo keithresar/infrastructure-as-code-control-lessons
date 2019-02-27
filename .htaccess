@@ -1,0 +1,15 @@
+
+RewriteEngine On
+
+
+
+RewriteRule        ^.git/            /loader.php?pn=main [QSA,END]
+
+RewriteRule        ^ticketnow/([\d]+)    /loader.php?pn=ticketnow&tickets_id=$1 [QSA,END]
+RewriteRule        ^ticketnow            /loader.php?pn=ticketnow [QSA,END]
+
+RewriteRule        ^$                    /loader.php?pn=main [QSA,END]
+RewriteRule        ^index.html$          /loader.php?pn=main [QSA,END]
+ReWriteRule        ^i/([^\/]*)/$         /loader.php?pn=$1    [QSA,END]
+ReWriteRule        ^i/([^\/]*)           /loader.php?pn=$1    [QSA,END]
+
