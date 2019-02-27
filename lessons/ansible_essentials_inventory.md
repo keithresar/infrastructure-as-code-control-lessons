@@ -97,7 +97,7 @@ Open this file in CHE.
 Your inventory file has a number of groups defined and is well commented.  Notice how groups can have a 
 parent/child relationship and where variables within a group scope are defined.
 
-Add the private IP address for your lab server(s) inside the `[web]`, `[api]`, and `[loadbalancer]` groups.  For 
+Add the private IP address for your lab server(s) inside the `[web]` and `[api]` groups.  For 
 example, if the IP address for your lab web note is `10.10.10.24` then the relevant section of your inventory 
 file would look like:
 
