@@ -63,36 +63,30 @@ Scroll through the log output and take note of the CHE Workspace URL provided.  
 like ```http://ipaddress:8080/```.
 
 
-### 💪  Exercise 1.2 - CAccess CHE Workspace
-Before we can begin doing super-cool automations and such, we’ve got to get a few basics out of 
-the way. Namely… ssh access to your control server.  Connect to your Red Hat Linux control server 
-using ssh.  
-
-If your laptop if Linux or Mac-based, the ssh command below will get you connected.  Replace `username`
-with your unique username.  Authenticate with the supplied password.
-
-```
-> ssh username@control-server
-```
-
-For example, if the control server was at 192.168.30.1 and your username was student:
-
-```
-> ssh student@192.168.30.1
-```
-
-If your laptop is Windows-based we recommend you download the [putty.exe](http://www.putty.org/).
-
-<img src="/images/putty_screenshot.png" style="margin-left:2em;max-width:50%;">
-
-Be sure you can log in to your control server!
-If you can’t log in start shouting, loudly, and waving your hands!
-
 ### ☢ Exercise 1.1 Results
+
+Take note of the CHE Workspace URL from the log output of the Ansible job you just executed.
+
+
+
+### 💪  Exercise 1.2 - Access CHE Workspace
+
+While you can complete all activities directly from the Linux command line on your bastion host, such
+as running Ansible playbooks and modifying files with the `vi` editor, this isn't the only way.  
+
+Our course makes use of the Eclipse CHE Web-based IDE which provides file editing, syntax highlighting,
+git source code management, and a browser-based terminal from which to execute your Ansible playbooks.
+
+In this exercise we will verify you can access your workspace and that it works as expected.
+
+
+
+### ☢ Exercise 1.2 Results
 
 At this point, everyone should have logged into each of your control node. 
 
 If you haven’t, let us know so we can get you fixed up.
+
 
 ### 📗 Resources
 
