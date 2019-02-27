@@ -15,13 +15,6 @@ require_once("classes/time_utils.php");
 
 
 
-if (array_key_exists("users_id",$_SESSION))  HitTracking::RecordHit();
-
-/* accept promo codes from any URL and store in session until time to use */
-if (array_key_exists('promo_code',$_REQUEST) && $_REQUEST['promo_code']!='')  {
-    require_once("classes/promo.php");
-    PromoCode::SetPromoCode($_REQUEST['promo_code']);
-}
 
 $GLOBALS['min_header'] = false;
 $GLOBALS['breadcrumbs'] = array();
@@ -39,6 +32,7 @@ else if (preg_match('/editor_/',$_REQUEST['pn']))  FileLoader("process_request/"
 else  FileLoader("process_request/",$_REQUEST['pn']);
 
 
+if (!array_key_exists('user',$_SESSION) && in_array($_REQUEST['pn'],['tickets','tickets_new','terminal','editor']))  $_REQUEST['pn'] = 'login';
 
 /*** headers *****/
 print "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n";

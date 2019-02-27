@@ -19,12 +19,14 @@
                 Online Editor
               </a>
             </li>
+			<!--
             <li class="nav-item <?php echo preg_match("/^terminal/",$_REQUEST['pn'])?'active':'';?>">
               <a class="nav-link" href="/i/terminal" target="_blank">
                 <i class="fa fa-terminal" aria-hidden="true"></i>
                 Terminal Session
               </a>
             </li>
+			-->
             <li class="nav-item">
               <a class="nav-link" href="/i/tickets">
                 <i class="fa fa-tasks" aria-hidden="true"></i>

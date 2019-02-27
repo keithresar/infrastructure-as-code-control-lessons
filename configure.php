@@ -1,7 +1,7 @@
 <?php
 
 // user credentials
-$GLOBALS['USER_PASSWORD'] = '@llth3th!ng$';
+$GLOBALS['USER_PASSWORD'] = 'R3dh@t12';
 
 // TicketNow
 $GLOBALS['TICKETNOW_DIR'] = 'tickets_db';
