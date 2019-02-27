@@ -14,7 +14,7 @@ Ansible will process the above list and use the first file found. Settings in fi
 
 <hr>
 
-### 💪  Exercise 1.1- Review ansible.cfg
+### 💪  Exercise 2.1- Review ansible.cfg
 
 To ease setup, and because our lab environment is so simple, we have created a basic `ansible.cfg` file for
 you which is located in your `/projects/infrastructure-as-code/` directory.  We will use mostly the defaults

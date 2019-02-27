@@ -88,29 +88,31 @@ special variables.
 
 <hr>
 
-### 💪  Exercise 1.3 - Review and configure your static inventory
+### 💪  Exercise 2.2 - Review and configure your static inventory
 
 Your account has a static inventory in the .ini format in your home diretory.
 
-Open this file using `vi` or `nano` if connected via ssh, or by using the web-based editor.
+Open this file in CHE.
 
 Your inventory file has a number of groups defined and is well commented.  Notice how groups can have a 
 parent/child relationship and where variables within a group scope are defined.
 
-Add the IP address for your lab node server(s) inside the `[lab_server]` group.  For example, if the IP address
-for your lab node is `192.168.30.1` then the relevant section of your inventory file would look like:
+Add the private IP address for your lab server(s) inside the `[web]`, `[api]`, and `[loadbalancer]` groups.  For 
+example, if the IP address for your lab web note is `10.10.10.24` then the relevant section of your inventory 
+file would look like:
 
 ```
-[lab_server]
-192.168.30.1
+[web]
+10.10.10.24
 ```
 
 Save changes made to your file.
 
-### ☢ Exercise 1.3 Results
+
+### ☢ Exercise 2.2 Results
 
 The IP address for your lab node should now be defined in your `inventory` file.
-We will test this in the next exercise.  If the test fails come back to this section and verify everything
+We will test this in the next exercise.  If the test fails, come back to this section and verify everything
 was defined as expected.
 
 
