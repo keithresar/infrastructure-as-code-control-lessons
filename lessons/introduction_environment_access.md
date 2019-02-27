@@ -83,9 +83,26 @@ Navigate to your CHE Workspace using the URL from exercise 1.1.  You should see 
 
 <img src="/images/introduction/che_dashboard.png" style="margin-left:2em;max-width:50%;">
 
-Click on the **ansible** link at the bottom of the sidebar.
+Click on the **ansible** link at the bottom of the sidebar.  You may need to wait while your workspace
+completes loading and building.  Your CHE workspace is backed by a container dedicated to your
+automation work throughout this training.
 
+<img src="/images/introduction/che_workspace_loading.png" style="margin-left:2em;max-width:50%;">
 
+Once the workspace loads you should see a screen like the following:
+
+<img src="/images/introduction/che_workspace.png" style="margin-left:2em;max-width:50%;">
+
+While an IDE is an incredibly powerful piece of software, your first introduction to it can be quite
+intimidating.  We won't make use of most of the included functionality.  Instead, two specific note
+of the three areas where we'll be working:
+
+* **1 - File Browser**.  Expand the file tree to open existing files or create new files
+* **2 - Editor Pane**.  Each open file gets its own tab in this pane.  Changes are automatically saved
+* **3 - Terminal**.  Click on the terminal tab to get access to a shell where you can run Ansible.
+  the project you're working on resides in the `/projects/` directory
+
+<img src="/images/introduction/che_workspace_marked_up.png" style="margin-left:2em;max-width:50%;">
 
 
 ### ☢ Exercise 1.2 Results
