@@ -34,18 +34,38 @@ $GLOBALS['HELP'] = [
 
 $GLOBALS['LESSONS'] = [
     '1 - Introduction' => [
-            'lessons_getting_started_agenda' => 'Agenda',
-            'lessons_getting_started_connecting_to_control' => 'Connecting to the Control Server',
-            'lessons_getting_started_ansiblecfg' => 'Introducing ansible.cfg',
-            'lessons_getting_started_inventry' => 'Inventories',
+            'lessons_introduction_agenda' => 'TODO Agenda',
+            'lessons_introduction_connecting_to_control' => 'TODO Connecting to the Control Server',
+            'lessons_introduction_ansiblecfg' => 'TODO Introducing ansible.cfg',
+            'lessons_introduction_inventry' => 'TODO Inventories',
         ],
 
     '2- Ansible Essentials' => [
-            'lessons_ansible_essentials_agenda' => 'Agenda',
-            'lessons_ansible_essentials_adhoc' => 'Ad-hoc Commands',
-            'lessons_ansible_essentials_first_playbook' => 'Your First Playbook',
-            'lessons_ansible_essentials_loops_variables' => 'Adding Variables, Loops, and a Handler',
-            'lessons_ansible_essentials_roles' => 'Modularity, Via Roles',
+            'lessons_ansible_essentials_agenda' => 'TODO Agenda',
+            'lessons_ansible_essentials_adhoc' => 'TODO Ad-hoc Commands',
+            'lessons_ansible_essentials_first_playbook' => 'TODO Your First Playbook',
+            'lessons_ansible_essentials_loops_variables' => 'TODO Adding Variables, Loops, and a Handler',
+            'lessons_ansible_essentials_roles' => 'TODO Modularity, Via Roles',
+        ],
+
+    '3 - Bootstrapping the Translation Wizard' => [
+            'lessons_bootstrapping_' => 'TODO lorem ipsum',
+        ],
+
+    '4 - Managing Security' => [
+            'lessons_security_' => 'TODO lorem ipsum',
+        ],
+
+    '5 - Horizontal Scaling' => [
+            'lessons_scaling_' => 'TODO lorem ipsum',
+        ],
+
+    '6 - Caching' => [
+            'lessons_caching_' => 'TODO lorem ipsum',
+        ],
+
+    '7 - Beyond Basic Testing' => [
+            'lessons_testing_' => 'TODO lorem ipsum',
         ],
 
 	/*
