@@ -40,7 +40,7 @@ $GLOBALS['LESSONS'] = [
 
     '2- Ansible Essentials' => [
             'lessons_ansible_essentials_agenda' => 'Agenda',
-            'lessons_ansible_essentials_ansiblecfg' => 'TODO Ansible.cfg Introduction',
+            'lessons_ansible_essentials_ansiblecfg' => 'Ansible.cfg Introduction',
             'lessons_ansible_essentials_inventory' => 'TODO Inventory Introduction',
             'lessons_ansible_essentials_ping' => 'TODO Verifying Connectivity',
             'lessons_ansible_essentials_first_playbook' => 'TODO Your First Playbooks',
