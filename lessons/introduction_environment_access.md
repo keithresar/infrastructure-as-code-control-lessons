@@ -1,4 +1,4 @@
-# Connecting to the Control Server
+# Environment Access
 
 All of your activity during this and subsequent labs occurs on a bastion node.  The bastion
 node is a Red Hat Linux server that:
@@ -39,25 +39,25 @@ Second, take note of your personal student number from your environment access s
 
 Now, navigate to the control AWS server IP and login using your supplied credentials.
 
-<img src="/images/introduction/awx_login_screenshot.png" style="margin-left:2em;max-width:50%;">
+<img src="/images/introduction/awx_login_screenshot.png" style="margin-left:2em;max-width:70%;">
 
 Once you successfulyl login you will see the dashboard screen:
 
-<img src="/images/introduction/awx_dashboard.png" style="margin-left:2em;max-width:50%;">
+<img src="/images/introduction/awx_dashboard.png" style="margin-left:2em;max-width:70%;">
 
 Click on the **Templates** link in the sidebar nav, then click the rocket icon to the right of the
 **Bootrap Access** template.
 
-<img src="/images/introduction/awx_templates.png" style="margin-left:2em;max-width:50%;">
+<img src="/images/introduction/awx_templates.png" style="margin-left:2em;max-width:70%;">
 
 A survey data collector window will pop up.  Provide the IP address and student number the click **Next**.
 Verify the data you submitted then click **Launch**.
 
-<img src="/images/introduction/awx_survey.png" style="margin-left:2em;max-width:50%;">
+<img src="/images/introduction/awx_survey.png" style="margin-left:2em;max-width:70%;">
 
 Wait for the AWX Ansible job to complete.  Seek assistance if the job has errors.
 
-<img src="/images/introduction/awx_bootstrap_complete.png" style="margin-left:2em;max-width:50%;">
+<img src="/images/introduction/awx_bootstrap_complete.png" style="margin-left:2em;max-width:70%;">
 
 Scroll through the log output and take note of the CHE Workspace URL provided.  It should look
 like ```http://ipaddress:8080/```.
@@ -81,17 +81,17 @@ In this exercise we will verify you can access your workspace and that it works 
 
 Navigate to your CHE Workspace using the URL from exercise 1.1.  You should see a screen like the one below.
 
-<img src="/images/introduction/che_dashboard.png" style="margin-left:2em;max-width:50%;">
+<img src="/images/introduction/che_dashboard.png" style="margin-left:2em;max-width:70%;">
 
 Click on the **ansible** link at the bottom of the sidebar.  You may need to wait while your workspace
 completes loading and building.  Your CHE workspace is backed by a container dedicated to your
 automation work throughout this training.
 
-<img src="/images/introduction/che_workspace_loading.png" style="margin-left:2em;max-width:50%;">
+<img src="/images/introduction/che_workspace_loading.png" style="margin-left:2em;max-width:70%;">
 
 Once the workspace loads you should see a screen like the following:
 
-<img src="/images/introduction/che_workspace.png" style="margin-left:2em;max-width:50%;">
+<img src="/images/introduction/che_workspace.png" style="margin-left:2em;max-width:70%;">
 
 While an IDE is an incredibly powerful piece of software, your first introduction to it can be quite
 intimidating.  We won't make use of most of the included functionality.  Instead, two specific note
@@ -102,7 +102,7 @@ of the three areas where we'll be working:
 * **3 - Terminal**.  Click on the terminal tab to get access to a shell where you can run Ansible.
   the project you're working on resides in the `/projects/` directory
 
-<img src="/images/introduction/che_workspace_marked_up.png" style="margin-left:2em;max-width:50%;">
+<img src="/images/introduction/che_workspace_markedup.png" style="margin-left:2em;max-width:70%;">
 
 
 ### ☢ Exercise 1.2 Results

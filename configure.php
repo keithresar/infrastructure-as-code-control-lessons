@@ -35,7 +35,7 @@ $GLOBALS['HELP'] = [
 $GLOBALS['LESSONS'] = [
     '1 - Introduction' => [
             'lessons_introduction_agenda' => 'Agenda',
-            'lessons_introduction_environment_access' => 'TODO Environment Access',
+            'lessons_introduction_environment_access' => 'Environment Access',
         ],
 
     '2- Ansible Essentials' => [
