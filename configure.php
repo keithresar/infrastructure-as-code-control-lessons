@@ -39,11 +39,15 @@ $GLOBALS['LESSONS'] = [
         ],
 
     '2- Ansible Essentials' => [
-            'lessons_ansible_essentials_agenda' => 'TODO Agenda',
-            'lessons_ansible_essentials_adhoc' => 'TODO Ad-hoc Commands',
-            'lessons_ansible_essentials_first_playbook' => 'TODO Your First Playbook',
+            'lessons_ansible_essentials_agenda' => 'Agenda',
+            'lessons_ansible_essentials_ansiblecfg' => 'TODO Ansible.cfg Introduction',
+            'lessons_ansible_essentials_inventory' => 'TODO Inventory Introduction',
+            'lessons_ansible_essentials_ping' => 'TODO Verifying Connectivity',
+            'lessons_ansible_essentials_first_playbook' => 'TODO Your First Playbooks',
             'lessons_ansible_essentials_loops_variables' => 'TODO Adding Variables, Loops, and a Handler',
             'lessons_ansible_essentials_roles' => 'TODO Modularity, Via Roles',
+            'lessons_ansible_essentials_git' => 'TODO Git Introduction',
+            'lessons_ansible_essentials_tower' => 'TODO Ansible Tower Introduction',
         ],
 
     '3 - Bootstrapping the Translation Wizard' => [
