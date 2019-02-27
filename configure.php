@@ -33,14 +33,14 @@ $GLOBALS['HELP'] = [
 
 
 $GLOBALS['LESSONS'] = [
-    'Getting Started' => [
+    '1 - Introduction' => [
             'lessons_getting_started_agenda' => 'Agenda',
             'lessons_getting_started_connecting_to_control' => 'Connecting to the Control Server',
             'lessons_getting_started_ansiblecfg' => 'Introducing ansible.cfg',
             'lessons_getting_started_inventry' => 'Inventories',
         ],
 
-    'Ansible Essentials' => [
+    '2- Ansible Essentials' => [
             'lessons_ansible_essentials_agenda' => 'Agenda',
             'lessons_ansible_essentials_adhoc' => 'Ad-hoc Commands',
             'lessons_ansible_essentials_first_playbook' => 'Your First Playbook',
@@ -48,6 +48,7 @@ $GLOBALS['LESSONS'] = [
             'lessons_ansible_essentials_roles' => 'Modularity, Via Roles',
         ],
 
+	/*
     'Graduating to Ansible Tower' => [
             'lessons_ansible_tower_agenda' => 'Agenda',
             'lessons_ansible_tower_credentials' => 'Creating a Credential',
@@ -62,6 +63,7 @@ $GLOBALS['LESSONS'] = [
             'lessons_beyond_linux_windows' => 'Windows Automation',
             'lessons_beyond_linux_api_ticketing' => 'API Integration',
         ],
+	*/
 
 ];
 
