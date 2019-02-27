@@ -107,12 +107,18 @@ of the three areas where we'll be working:
 
 ### ☢ Exercise 1.2 Results
 
-At this point, everyone should have logged into each of your control node. 
+The exercise is complete once you can:
 
-If you haven’t, let us know so we can get you fixed up.
+* Access your CHE workspace
+* Select a file from the browser pane and open it in the editor pane
+* Open the terminal and change to your project directory
+
+Seek assistance if you run into issues with any of the above, or if the display is not rendering
+as expected.
+
 
 
 ### 📗 Resources
 
- - Windows ssh client [putty.exe](http://www.putty.org/)
+ - [Eclipse CHE introduction](https://www.eclipse.org/che/docs/che-6/index.html)
 
