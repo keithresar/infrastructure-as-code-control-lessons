@@ -1,6 +1,6 @@
 # Getting Started Agenda
 
-Today is meant for anyone who has any exposure to Ansible, whether you have used it or 
+Today is meant for everyone to get a base-line exposure to Ansible, whether you have used it or 
 not. The format of this discussion is a combination of presentation, demonstration, and 
 hands-on labs.
 
@@ -16,9 +16,7 @@ Hopefully you have your laptop with you. If not, please find a shoulder-surfing 
 In this section we focus on getting everyone access to the lab environment and we introduce
 two of the core files used within the Ansible environment.
 
- - Connecting to the Control Server
- - Introducing Ansible.cfg
- - Inventories
+ - Environment Access
 
 Proceed to the next exercise to continue.
 
