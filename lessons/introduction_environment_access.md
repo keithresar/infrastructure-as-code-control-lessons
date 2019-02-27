@@ -79,6 +79,13 @@ git source code management, and a browser-based terminal from which to execute y
 
 In this exercise we will verify you can access your workspace and that it works as expected.
 
+Navigate to your CHE Workspace using the URL from exercise 1.1.  You should see a screen like the one below.
+
+<img src="/images/introduction/che_dashboard.png" style="margin-left:2em;max-width:50%;">
+
+Click on the **ansible** link at the bottom of the sidebar.
+
+
 
 
 ### ☢ Exercise 1.2 Results
