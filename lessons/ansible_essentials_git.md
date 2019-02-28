@@ -26,17 +26,30 @@ Please change to a new directory outside of the project space where you've been 
 
 **Creating a new repository**
 
+Git operates locally and its entire database exists within you the project's root directory.
+This allows you to have multiple different projects, each residing in their own directory.
+
+To create a new git repository called `test-repo` issue the following command:
+
+```
+> git init .
+```
+
 
 **Adding and staging files**
+
 
 
 **Committing changes**
 
 
+
 **Creating branches**
 
 
+
 **Merging changes**
+
 
 
 **Cleanup**
