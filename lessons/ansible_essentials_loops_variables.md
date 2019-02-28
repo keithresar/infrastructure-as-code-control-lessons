@@ -5,13 +5,13 @@ conditions, variables, and loops.  In the next excercise we explore these.
 
 <hr>
 
-### 💪  Exercise 2.8 - Defining Variables
+###  Exercise 2.9 - Defining Variables
 
-Create a new ansible playbook file named `apache_basic.yml`.
-For an easy start you can copy all the content from your previous `apache_install.yml` playbook and
-modify from there.
+Change to the `2.9_loops_variables` directory.  We will be building on the content you've already created,
+so either copy your `2.5_first_playbook/install_apache.yml` file to this directory or modify the template
+`install_apache.yml` that we've provided.
 
-We start by defining variables.  There are a dozen different levels of scope within ansible.  Yes, this
+We start by defining variables.  There are two dozen different levels of scope within ansible.  Yes, this
 is intimidating if you actually try to understand them all (see resources below if you want to read up on
 them).  Practically though, what this means is you can define just the right variables when you need them.
 All while making re-use and modularity super simple (more on that later).
@@ -25,7 +25,7 @@ Modify the play definition to add in the `vars` definition below.
 
 ```
 ---
- - hosts: lab_server
+ - hosts: web
    name: Install the apache web service
    become: yes
    vars:
@@ -36,22 +36,22 @@ Modify the play definition to add in the `vars` definition below.
        - mod_wsgi
 ```
 
-### 💪  Exercise 2.9 - Using Variables in a Loop
+###  Exercise 2.10 - Using Variables in a Loop
 
 Modify the task that calls the `yum` module so it looks like the following:
 
 ```
    tasks:
-     - name: install apache
+     - name: Install packages
        yum:
          name: "{{ item }}"
          state: present
-       with_items: "{{ httpd_packages }}"
+       loop: "{{ httpd_packages }}"
 ```
 
 We are introducing two new elements with this task:
 
- - **`with_items:`** - This keyword is used to initiate a loop.  The loop will iterate over the `yum` module task
+ - **`loop:`** - This keyword is used to initiate a loop.  The loop will iterate over the `yum` module task
    once with each element in the `httpd_packages` list variable.
  - **`{{ item }}`** - This is a special variable that is declared by the loop itself.  With each iteration the
    value is updated to the next value in the list.  (ignore the `{{ }}` notation for now).
@@ -62,12 +62,12 @@ This task will effective run the following two operations for us:
  - Install package mod_wsgi
 
 
-### 💪  Exercise 2.10 - Configure Apache
+###  Exercise 2.11 - Configure Apache
 
 Ansible provides an awesome toolset for managing files and configurations.  One element of this is available from the
 `lineinfile` module.  This module garauntees that a line is present/absent or set to contain specific content.
 
-Create a new task following `install apache` that modifies the apache configuration:
+Create a new task following `Install packages` that modifies the apache configuration:
 
 ```
      - name: set httpd port
@@ -77,16 +77,21 @@ Create a new task following `install apache` that modifies the apache configurat
          line: "Listen {{ httpd_port }}"
 ```
 
-Here we are using the variable httpd_port and inserting it into the apache configuration file so we can manage the port
-apache is listening on.  Since we only modified a specific line, there is no risk to tainting the rest of the configuration
+Here we are using the variable `httpd_port` and inserting it into the apache configuration file so we can manage the port
+Apache is listening on.  Since we only modified a specific line, there is no risk to tainting the rest of the configuration
 which makes patches safer and also allows us to execute this standardization across hosts with a divergent configuration.
 
 
-### 💪  Exercise 2.11 - Make Your Web Page
+###  Exercise 2.12 - Start the Apache Service
+
+Start the http service using the same command as in your first playbook.
+
+
+###  Exercise 2.13  Make Your Web Page
 
 If you access your web server now you will see a default placeholder page.  We can do better than that.
 
-Add a new task at the end of your task list to make this web page.  The task ordering should be:
+Add a new task at the end of your task list to make this web page.  The task ordering at this point should be:
 
  - Install with `yum`
  - Configure with `lineinfile`
@@ -96,19 +101,19 @@ Add a new task at the end of your task list to make this web page.  The task ord
 Make your new task look like this:
 
 ```
-     - name: create web page
+     - name: Create web page
        template:
-         src: workshop_solutions/templates/index.html.j2
+         src: index.html.j2
          dest: /var/www/html/index.html
 ```
 
 The `template` does two things - it generates a custom file from a static source then migrates it to the target host.
 Here is a bit more detail on the flow:
 
- - The source file is located on your control server
+ - The source file is located on your local server (is it hidden in the `templates/` directory)
  - The file is run through a templating engine called `jinja2`
- - If the newly generated file on your control server differs from what exists at the target,
-   ansible copies the new file to the target
+ - If the newly generated file differs from what exists at the target,
+   Ansible copies the new file to the target
 
 Do not skim over this - the `template` module is a game changer if you are coming from managing things from a bash script.
 
@@ -124,28 +129,55 @@ Page is hosted on {{ ansible_host }} and should be listening on port {{ httpd_po
 
 Let’s start examining the interesting elements introduced in this file:
 
- - Variables in the file, much like in our playbook, havbe the `{{` and `}}` to signify the start and end of what’s processed
+ - Variables in the file, much like in our playbook, have the `{{` and `}}` to signify the start and end of what’s processed
    by the `jinja2` templating engine.  Any text in the file outside of the double mustache is ignored.  Most of the time
    you can take a known good file and replace a few elements with these variables and you are ready to rock.
  - The `| default('...')` is a filter - `jinja2` provides a few dozen of these - to further modify what is ultimately
-   saved inside the file.  In this case the filer applies the a default value if `httpd_test_message` is undefined.
+   saved inside the file.  In this case the filter applies a default value if `httpd_test_message` is undefined.
  
 Feel free to review the [template module](http://docs.ansible.com/ansible/latest/template_module.html) documentation for more detail.
 
 
-### 💪  Exercise 2.12 - Execute Your Playbook
+###  Exercise 2.14- Execute Your Playbook
 
 Time to execute your playbook:
 
 ```
-> ansible-playbook apache_basic.yml
+> ansible-playbook install_apache.yml
+```
+
+Expect to see output similar to this after a successful execution
+
+```
+
+PLAY [Install the Apache web service] **********************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+ok: [10.10.10.69]
+
+TASK [Install packages] ************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+changed: [10.10.10.69] => (item=httpd)
+changed: [10.10.10.69] => (item=mod_wsgi)
+
+TASK [Configure Apache] ************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+ok: [10.10.10.69]
+
+TASK [Start httpd] *****************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+changed: [10.10.10.69]
+
+TASK [Create web page] *************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+changed: [10.10.10.69]
+
+PLAY RECAP *************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+10.10.10.69                : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
 If everything goes right, when you point your web browser at your lab server host following the playbook execute you should see
 your new web page, custom content and all, instead of the default placeholder.
 
 
-### 💪  Exercise 2.13 - Changing Your Apache Configuration Again
+
+###  Exercise 2.16 - Changing Your Apache Configuration Again
 
 Web over port 80 is so boring.  Change the `httpd_port` variable to `81` and re-execute your playbook.
 
@@ -166,7 +198,7 @@ Where you able to access the web page on your new port?
 If not, why not?
 
 
-### 💪  Exercise 2.12 - Changing Your Apache Configuration For Real Using a Handler
+###  Exercise 2.16 - Changing Your Apache Configuration For Real Using a Handler
 
 configuration changes to your apache web server only take affect when reloading or restarting the service.
 
@@ -265,6 +297,7 @@ the tasks have completed.  This decreases run time and dramatically increases sa
 ### 📗 Resources
 
  - [Ansible playbook variables](http://docs.ansible.com/ansible/latest/playbooks_variables.html)
+ - [Ansible loops](https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html)
  - [Ansible lineinfile module](http://docs.ansible.com/ansible/latest/lineinfile_module.html)
  - [Ansible template module](http://docs.ansible.com/ansible/latest/template_module.html)
 
