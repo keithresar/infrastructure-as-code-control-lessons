@@ -173,7 +173,14 @@ PLAY RECAP *********************************************************************
 ```
 
 If everything goes right, when you point your web browser at your lab server host following the playbook execute you should see
-your new web page, custom content and all, instead of the default placeholder.
+your new web page, custom content and all, instead of the default placeholder.  
+
+Note - you'll need to access the public IP address for the web site to work.  Alternately, you can use `curl` directly from
+the command line like this:
+
+```
+> curl http://10.10.10.69
+```
 
 
 
@@ -235,59 +242,58 @@ If you are lost, below is a full dump of what our current file looks like.  You 
 `workshop_solutions/ansible_loops.yml` on your control server.
 
 ```
----
- - hosts: lab_server
-   name: Install the apache web service
-   become: yes
-   vars:
-     httpd_test_message: Hello, this is my test message
-     httpd_port: 82
-     httpd_packages:
-       - httpd
-       - mod_wsgi
+- hosts: web
+  name: Install the Apache web service
+  become: true
 
-   tasks:
-     - name: install apache
-       yum:
-         name: "{{ item }}"
-         state: present
-       with_items: "{{ httpd_packages }}"
+  vars:
+    httpd_test_message: Hello, this is my test message
+    httpd_port: 82
+    httpd_packages:
+      - httpd
+      - mod_wsgi
 
-     - name: set httpd port
-       lineinfile:
-         path: /etc/httpd/conf/httpd.conf
-         regexp: "^Listen "
-         line: "Listen {{ httpd_port }}"
-       notify: restart httpd
+  tasks:
 
-     - name: start httpd
-       service:
-         name: httpd
-         state: started
+    - name: Install packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ httpd_packages }}"
 
-     - name: create web page
-       template:
-         src: workshop_solutions/templates/index.html.j2
-         dest: /var/www/html/index.html
+    - name: Configure Apache
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: "^Listen "
+        line: "Listen {{ httpd_port }}"
+      notify: restart httpd
 
-   handlers:
-     - name: restart httpd
-       service:
-         name: httpd
-         state: restarted
+    - name: Start httpd
+      service:
+        name: httpd
+        state: started
+
+    - name: Create web page
+      template:
+        src: index.html.j2
+        dest: /var/www/html/index.html
+
+
+  handlers:
+    - name: restart httpd
+      service:
+        name: httpd
+        state: restarted
+
 ```
 
 Re-execute your playbook with the command below:
 
 ```
-> ansible-playbook apache_basic.yml
+> ansible-playbook install_apache.yml
 ```
 
-Now use your browser to access your site again:
-
-```
-http://192.168.30.1:82
-```
+Now use your browser (via public IP) or curl (via private IP) to access your site again:
 
 One other tidbit about handlers - if you notify the same handler several times it will actually only execute once, after all
 the tasks have completed.  This decreases run time and dramatically increases safety.
@@ -300,4 +306,5 @@ the tasks have completed.  This decreases run time and dramatically increases sa
  - [Ansible loops](https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html)
  - [Ansible lineinfile module](http://docs.ansible.com/ansible/latest/lineinfile_module.html)
  - [Ansible template module](http://docs.ansible.com/ansible/latest/template_module.html)
+ - [Ansible handlers](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#handlers-running-operations-on-change)
 
