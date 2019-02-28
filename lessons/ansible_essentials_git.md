@@ -184,11 +184,40 @@ When you complete the exercise please change back to your project directory
 
 ###  Exercise 2.20 - Configuring access to Gitlab
 
-- logging into browser
-- uploading ssh key
+The true power of git can only be realized when collaborating beyond the local filesystem, which is
+something we haven't yet explored.
+
+Our lab environment has a shared Gitlab server and everyone has a login to this asset.  We need to
+configure your access to Gitlab.
+
+Login to Gitlab from the URL in your access sheet and using the student login credentials you've
+been assigned.
+
+<img src="/images/ansible_essentials/gitlab_login.png" style="margin-left:2em;max-width:70%;">
+
+After logging in click **Settings** available from the menu under your avatar in the top-right corner
+of the screen
+
+<img src="/images/ansible_essentials/gitlab_dashboard.png" style="margin-left:2em;max-width:70%;">
+
+Click **SSH Keys** half-way down the lefthand sidebar.
+
+<img src="/images/ansible_essentials/gitlab_settings.png" style="margin-left:2em;max-width:70%;">
+
+From within CHE open the file `files/student-ssh-public-key.pub` and paste that into the **Key** field,
+then press the **Add Key** button.
+
+<img src="/images/ansible_essentials/gitlab_add_ssh_key.png" style="margin-left:2em;max-width:70%;">
+
+When you public key has been saved to your Gitlab server the screen should look like this:
+
+<img src="/images/ansible_essentials/gitlab_ssh_keys.png" style="margin-left:2em;max-width:70%;">
 
 
-###  Exercise 2.20 - Working with Git in CHE
+
+###  Exercise 2.21 - Working with Git in CHE
+
+
 
 - uploading ssh key
 - adding remotes
