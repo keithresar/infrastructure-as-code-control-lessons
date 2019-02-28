@@ -162,6 +162,16 @@ Merge `dev` into `MASTER` using the `git merge` command.
 The file you modified in dev should now be visible.
 
 
+**Extra Credit**
+
+If time permits try to exercise some more complicated changes and merges.  For example, what happens if
+you:
+
+* Create a new branch, modify the same file in multiple branches, and try to merge them
+* Create a two branches off `MASTER` - `dev2` and `dev3`.  Create a file in `dev2` and merge it into `dev3`.
+  This is an example of merging from unrelated (sibling) branches.
+
+
 **Cleanup**
 
 
@@ -170,6 +180,7 @@ When you complete the exercise please change back to your project directory
 ```
 > cd /projects/infrastructure-as-code
 ```
+
 
 ###  Exercise 2.20 - Configuring access to Gitlab
 
