@@ -3,27 +3,28 @@
 Now that you’ve gotten a sense of how ansible works, we are going to write our first ansible playbook. The playbook 
 is where you can take some of those ad-hoc commands you just ran and put them into a repeatable set of plays and tasks.
  
-A playbook can have multiple plays and a play can have one or multiple tasks. The goal of a play is to map a group of hosts. 
+A playbook can have multiple plays and a play can have one or more tasks. The goal of a play is to map a group of hosts. 
 The goal of a task is to implement modules against those hosts.
  
 
 <hr>
 
-### 💪  Exercise 2.4 - Defining Your Play
+### 💪  Exercise  2.5 - Defining Your Play
 
 For our first playbook, we are only going to write one play and two tasks.
 
-Create a new file called `install_apache.yml` on the control server.  There are two ways to do this:
+Change to the `2.5_first_playbook` directory and notice the files present as we will follow a similar
+approach for all subsequent lessons:
 
- - From the control server using `vi`, `nano`, or any other Linux editor you are already familiar with
- - Using the web-based editor at http://ansibleallthethings.com/i/editor and clicking the `new file` button
+* `install_apache.yml` - This is an empty file and where you should work
+* `install_apache_SOLUTION_2.5.yml` - This is a commented file with the solutions for the labeled exercise
 
-In the `install_apache.yml` file, add the following lines:
+Now please open the empty file `install_apache.yml` and add the following lines:
 
 ```
 ---
-- hosts: lab_server
-  name: Install the apache web service
+- hosts: web
+  name: Install the Apache web service
   become: yes
 ```
 
@@ -39,11 +40,12 @@ Now getting to the three lines of ansible you just wrote.  These lines mean the 
 
  - **`hosts:`** - Defines the host group in your inventory on which this play will run against
  - **`name:`** - This is a free-text description of what we are going to do
- - **`become:`** - Specifies that we will execute as root (we will **become** root via sudo).
-   This enables user privilege escalation. While the default is sudo,  su, pbrun, and several others are also supported
+ - **`become:`** - Specifies that we will execute as root (we will **become** root via `sudo`).
+   This enables user privilege escalation. While the default is `sudo`, `su`, `pbrun`, and several others are also supported
 
 
-### 💪  Exercise 2.5 - Adding Tasks to Your Play
+
+### 💪  Exercise  2.6 - Adding Tasks to Your Play
 
 Now that we’ve defined your play, let’s add some tasks to get some things done. 
 
@@ -75,7 +77,7 @@ Now getting to the lines of ansible you just wrote.  These lines mean the follow
  - **`  - name:`** -  Each task requires a name which will print to standard output when you run your playbook. Therefore, give your 
    tasks a name that is short, sweet, and to the point
  - **`    yum:`** - This line, and the `service` line in the second element, refer to the module we are calling with this automation.
-   There are over 1400 different modules that ship with ansible, most of which are written in Python.  These modules do the actual
+   There are over 2800 different modules that ship with ansible, most of which are written in Python.  These modules do the actual
    work
  - **`      state:`** - This line, along with a re-use of `name` indented under the yum/service module sections, are parameters to the
    specified modules.  Each module take zero or more parameters.  These parameters affect how the module executes.  In this example,
@@ -139,7 +141,7 @@ have the best luck using the solution file that already exists on your control s
 (the solution file on your control node is in `workshop_solutions/apache_install.yml`).
 
 
-### 💪  Exercise 2.6 - Running Your Playbook
+### 💪  Exercise 2.67- Running Your Playbook
 
 Ansible playbooks are executed using a different binary than the ad-hoc command we worked with in the last section.
 
@@ -157,7 +159,7 @@ you first logged into the server).
 ```
 
 
-### ☢ Exercise 2.6 Results
+### ☢ Exercise 2.7 Results
 
 Ansible will execute the two tasks you defined and will display output as is progresses.  The output is color coded, so
 take note of the following mostly commonly seen colors:
@@ -208,7 +210,7 @@ idempotent - meaning you can execute the same task repeatedly and it will only m
 match the current state.
 
 
-### 💪  Exercise 2.7 - Removing Apache
+### 💪  Exercise 2.78- Removing Apache
 
 Now we’re going to be less explicit about how to complete the exercise.  
 
@@ -221,7 +223,7 @@ Reference the [yum module](http://docs.ansible.com/ansible/latest/yum_module.htm
 Then, execute `ansible-playbook` to affect change.
 
 
-### ☢ Exercise 2.7 Results
+### ☢ Exercise 2.8 Results
 
 The solution is available in the file `workshop_solutions/apache_uninstall.yml`
 
