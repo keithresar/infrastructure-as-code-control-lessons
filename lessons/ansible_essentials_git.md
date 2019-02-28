@@ -17,11 +17,10 @@ most commonly used functionality.
 
 This entire exercise will be completed inside your terminal.
 
-Please change to a new directory outside of the project space where you've been working so far.
+Please change to your home directory outside of the project space where you've been working so far.
 
 ```
 > cd
-> mkdir test-repo
 ```
 
 **Creating a new repository**
@@ -32,15 +31,58 @@ This allows you to have multiple different projects, each residing in their own 
 To create a new git repository called `test-repo` issue the following command:
 
 ```
-> git init .
+> git init test-repo
+```
+
+If you change into the `test-repo` directory and explore you'll notice a number of files created
+under a hidden `.git/` subdirectory.  Git stores its entire database locally inside of this directory.
+
+```
+> cd test-repo
+> find test-repo
 ```
 
 
 **Adding and staging files**
 
+What good is version control without any files?  Let's create some files that we'll work with through
+the next few exercises.  
+
+```
+> touch file1 file2 file2
+```
+
+As of now git doesn't know or manage these files - as can be seen by running the `git status` command.
+
+```
+> git status 
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#    file1
+#    file2
+#    file3
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+We can stage these files for commit by using the `git add` command
+
+```
+> git add file1 file2 file3
+```
+
+See how the status output changes after staging those files.
 
 
 **Committing changes**
+
+The staged files are not yet immutably locked in the git VCS database, that can only be done
+by commiting them.
+
 
 
 
