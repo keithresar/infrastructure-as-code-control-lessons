@@ -9,11 +9,11 @@ parts sit in a directory structure.
 For this exercise, you are going to take the playbook you just wrote and refactor it into a role.  
 In addition, you’ll learn to use Ansible Galaxy.
  
-Let’s begin with seeing how your `apache_basic.yml` will break down into a role.  The flow of this section is:
+Let’s begin with seeing how your `install_apache.yml` will break down into a role.  The flow of this section is:
 
  - Quick learning - what is a role (watch some slides for that)
  - Create the scaffolding for a role
- - Decompose your `apache_basic.yml` playbook into the role
+ - Decompose your `install_apache.yml` playbook into the role
  - Execute your playbook and hopefully everything still works
 
 Sure, this seems like a lot of work but this is just a toy example here.  Roles are typically implemented for
@@ -27,7 +27,11 @@ load balancer membership, or modifying a change control ticket.
 
 <hr>
 
-### 💪  Exercise 2.18 - Creating Scaffolding for Your Role
+###  Exercise 2.17 - Creating Scaffolding for Your Role
+
+Change to the `2.17_roles` directory.  We will be building on the content you've already created,
+so either copy your `2.17_loops_variables/install_apache.yml` file to this directory or modify the template
+`install_apache.yml` that we've provided.
 
 Roles are defined by a large directory structure, replicated below:
 
@@ -58,7 +62,7 @@ Use the easy button to create this scaffolding on your control node by using the
 ```
 
 
-### 💪  Exercise 2.19 - Decomposing Your Playbook into the Role
+###  Exercise 2.18 - Decomposing Your Playbook into the Role
 
 The tasks and external dependencies used in your playbook will reside within files inside the role directory `apache_simple/`
 rather than within your playbook once everything is done.
@@ -70,7 +74,7 @@ it should look like this:
 
 ```
 ---
-# defaults file for apache_simple
+# defaults file for apache_basic
 httpd_test_message: Hello, this is my test message
 httpd_port: 81
 ```
@@ -105,7 +109,7 @@ Copy the `index.html.j2 we used into your role’s `templates/` directory.  Once
 module will automatically look for the template in that directory (take note of this, and update your task appropriately).
 
 ```
-> cp workshop_solutions/templates/index.html.j2 apache_basic/templates/
+> cp ../2.9_loops_variables/templates/index.html.j2 apache_basic/templates/
 ```
 
 **tasks**
@@ -122,8 +126,8 @@ Now that everything is done, we can re-write your playbook.  Create a new file `
 
 ```
 ---
- - hosts: lab_server
-   name: Install the apache web service
+ - hosts: web
+   name: Install the Apache web service
    become: yes
 
    roles:
@@ -134,37 +138,39 @@ Isn’t that just the shortest playbook you’ve ever seen?  And if we need to a
 that is already started.
 
 
-### ☢ Exercise 2.19 Results
+### ☢ Exercise 2.18 Results
 
 Execute your playbook using the same command format as always:
 
 ```
-> ansible-playbook apache_role.yml
+> ansible-playbook install_apache.yml
 ```
 
 Notice your output is very similar to what is has always been, with the exception that the task names are prepended with
 the name of your role.
 
 ```
-PLAY [Install the apache web service] **************************************************************************************************************************
 
-TASK [Gathering Facts] *****************************************************************************************************************************************
-ok: [54.84.199.50]
+PLAY [Install the Apache web service] **********************************************************************************************************************************************************************************************************************************************************************************************************************************
 
-TASK [apache_basic : install apache] ***************************************************************************************************************************
-ok: [54.84.199.50] => (item=[u'httpd', u'mod_wsgi'])
+TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+ok: [10.10.10.69]
 
-TASK [apache_basic : set httpd port] ***************************************************************************************************************************
-ok: [54.84.199.50]
+TASK [apache_basic : Install packages] *********************************************************************************************************************************************************************************************************************************************************************************************************************************
+ok: [10.10.10.69] => (item=httpd)
+ok: [10.10.10.69] => (item=mod_wsgi)
 
-TASK [apache_basic : start httpd] ******************************************************************************************************************************
-ok: [54.84.199.50]
+TASK [apache_basic : Configure Apache] *********************************************************************************************************************************************************************************************************************************************************************************************************************************
+ok: [10.10.10.69]
 
-TASK [apache_basic : create web page] **************************************************************************************************************************
-ok: [54.84.199.50]
+TASK [apache_basic : Start httpd] **************************************************************************************************************************************************************************************************************************************************************************************************************************************
+ok: [10.10.10.69]
 
-PLAY RECAP *****************************************************************************************************************************************************
-54.84.199.50               : ok=5    changed=0    unreachable=0    failed=0
+TASK [apache_basic : Create web page] **********************************************************************************************************************************************************************************************************************************************************************************************************************************
+ok: [10.10.10.69]
+
+PLAY RECAP *************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+10.10.10.69                : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
 
