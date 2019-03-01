@@ -152,13 +152,33 @@ When the job is complete it should show green and success.
 
 ###  Exercise 2.27 - Modifying the Parameters in your Playbook
 
+Remember those variables we created when setting up Apache on your web server?  We hard coded those
+within the playbook.  Obviously that isn't best practice outside of a learning environment.  Ansible
+Tower let's us overwrite those variable either when defining the job template or at run time.
+
+Edit your job template again and check the **Prompt at Launch** box to the right of the **Extra Vars**
+text area at the bottom of the screen then save your template again.
+
+<img src="/images/ansible_essentials/tower_new_template3.png" style="margin-left:2em;max-width:70%;">
+
+Now try to execute your template a second time.  You should see a prompt for **Extra Vars**.
+Enter the following text then click the **Next** and **Launch** buttons.
+
+```
+---
+httpd_test_message: This message was updated from Ansible Tower
+```
+
+<img src="/images/ansible_essentials/tower_job2.png" style="margin-left:2em;max-width:70%;">
+
+As the job runs notice that the **Extra Vars** you supplied are visible and that the job itself makes
+changes to the target server (visible by the orange coloring).
+
+<img src="/images/ansible_essentials/tower_job3.png" style="margin-left:2em;max-width:70%;">
+
+Navigate to your web server again (or use `curl`) and verify that the message has changed.
+Remember that your server may be running on port `81` or `82`.  I bet you can change the port
+from within Tower as well.
 
 
-
-
-
-### 📗 Resources
-
- - [git cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
- - [git branches in a nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 

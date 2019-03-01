@@ -47,7 +47,7 @@ $GLOBALS['LESSONS'] = [
             'lessons_ansible_essentials_loops_variables' => 'Adding Variables, Loops, and a Handler',
             'lessons_ansible_essentials_roles' => 'Modularity, Via Roles',
             'lessons_ansible_essentials_git' => 'Git Introduction',
-            'lessons_ansible_essentials_tower' => 'TODO Ansible Tower Introduction',
+            'lessons_ansible_essentials_tower' => 'Ansible Tower Introduction',
         ],
 
     '3 - Bootstrapping the Translation Wizard' => [
