@@ -1,0 +1,85 @@
+# Ansible Tower Introduction
+
+Red Hat Ansible Tower helps you scale IT automation, manage complex deployments and speed productivity. 
+Centralize and control your IT infrastructure with a visual dashboard, role-based access control, job 
+scheduling, integrated notifications and graphical inventory management. And Ansible Tower's REST API 
+and CLI make it easy to embed Ansible Tower into existing tools and processes.
+
+Up to this point you've been running your Ansible automation from the command line calling `ansible-playbook`
+directly.  Ansible Tower let's you get more control over your automation.  Every object in Tower
+(credentials, inventories, templates, etc.) has RBAC tied to it which allows most organizations to
+safely delegate their automation.  A typical division of work might include:
+
+* Functional owner (e.g. the load balancing management team) has write access to the
+  credential, playbook, and the inventory.  They will create a job template referencing these.
+* Junior admins, triage operators, or downstream consuming teams are delegating execute
+  access to the automation that's been created and vetted by the functional owner.
+
+<hr>
+
+###  Exercise 2.22 - Accessing Ansible Tower
+
+Navigate to the Ansible Tower Web UI and login with your student credentials.
+
+<img src="/images/ansible_essentials/tower_login.png" style="margin-left:2em;max-width:70%;">
+
+After logging in you'll see the Tower dashbaord.  Since your student account has full admin
+permissions you'll also be able to see activity from others in the class.
+
+<img src="/images/ansible_essentials/tower_dashboard.png" style="margin-left:2em;max-width:70%;">
+
+
+###  Exercise 2.23 - Creating Credentials
+
+We are going to create a credential so you can securely access your Gitlab project.
+
+Navigate to the credentials screen by clicking on **Credentials** in the sidebar.
+Then select the green **+** button to create a new credential.
+
+<img src="/images/ansible_essentials/tower_credentials_before.png" style="margin-left:2em;max-width:70%;">
+
+Fill in the data collector as follows:
+
+* **Name** - Your student ID followed by gitlab, e.g. `student0-gitlab`
+* **Credential Type** - Select `Source Control`
+* **Username** - Your student ID
+* **Password** - Your student password
+
+<img src="/images/ansible_essentials/tower_new_credential.png" style="margin-left:2em;max-width:70%;">
+
+
+###  Exercise 2.24 - Creating Projects
+
+** Gitlab **
+A project in Ansible Tower is equivalent to a project in Gitlab or a git repo - they all refer to the
+same assets.  That being said, quickly navigate to the Gitlab instance so we can get the URL to access
+your `infrastructure-as-code-lab` repo.
+
+From your Gitlab project page click on the blue **Clone** button and copy the **Clone with HTTP** URL.
+
+<img src="/images/ansible_essentials/gitlab_clone_with_http.png" style="margin-left:2em;max-width:70%;">
+
+
+** Ansible Tower **
+
+Back to Ansible Tower, navigate to the projects screen by clicking on the **Projects** link in the sidebar.
+Then select the green **+** button to create a new project.
+
+<img src="/images/ansible_essentials/tower_projects_before.png" style="margin-left:2em;max-width:70%;">
+
+Fill out the data collector as follows:
+
+* **Name** - Your student ID followed by infrastructure-as-code, e.g. `student0-infrastructure-as-code`
+* 
+
+<img src="/images/ansible_essentials/tower_new_project.png" style="margin-left:2em;max-width:70%;">
+
+
+
+
+
+### 📗 Resources
+
+ - [git cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
+ - [git branches in a nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+
