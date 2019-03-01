@@ -46,7 +46,7 @@ $GLOBALS['LESSONS'] = [
             'lessons_ansible_essentials_first_playbook' => 'Your First Playbooks',
             'lessons_ansible_essentials_loops_variables' => 'Adding Variables, Loops, and a Handler',
             'lessons_ansible_essentials_roles' => 'Modularity, Via Roles',
-            'lessons_ansible_essentials_git' => 'TODO Git Introduction',
+            'lessons_ansible_essentials_git' => 'Git Introduction',
             'lessons_ansible_essentials_tower' => 'TODO Ansible Tower Introduction',
         ],
 

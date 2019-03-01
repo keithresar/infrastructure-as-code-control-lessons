@@ -241,18 +241,6 @@ When you public key has been saved to your Gitlab server the screen should look 
 
 CHE should not be able to authenticate as your student account within Gitlab.
 
-
-###  Exercise 2.21 - Working with Git in CHE
-
-Switch back to your CHE workspace, it's time to add your current (and future) Ansible playbooks into
-git VCS.
-
-The scaffolding you've been using for your exercises thus far was pulled from a public repo hosted
-on Github.  During this exercise you will fork this repo and take ownership of it hosted within
-your own Gitlab environment.  Isn't decentralized VCS awesome?
-
-**Gitlab**
-
 From Gitlab let's create a new project (their term for a git repository).  Navigate to the **Plus**
 menu in the middle of the navbar then select **New project**.
 
@@ -268,8 +256,14 @@ blue **Clone** button then copy the **Clone with SSH** path to add the URL to yo
 <img src="/images/ansible_essentials/git_clone_project.png" style="margin-left:2em;max-width:70%;">
 
 
+###  Exercise 2.21 - Working with Git in CHE
 
-**CHE**
+Switch back to your CHE workspace, it's time to add your current (and future) Ansible playbooks into
+git VCS.
+
+The scaffolding you've been using for your exercises thus far was pulled from a public repo hosted
+on Github.  During this exercise you will fork this repo and take ownership of it hosted within
+your own Gitlab environment.  Isn't decentralized VCS awesome?
 
 From your CHE workspace navigate to the **Git -> Remotes -> Remotes** menu.
 
