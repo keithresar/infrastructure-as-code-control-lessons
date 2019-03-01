@@ -93,8 +93,61 @@ all the hosts for todays lab.  Please don't break it!
 Now return back to the inventory screen and click the green **+** button to create a new inventory
 just for you.
 
+<img src="/images/ansible_essentials/tower_inventories_before.png" style="margin-left:2em;max-width:70%;">
+
+Fill out the data collector as follows then click the save button:
+
+* **Name** - Your student ID followed by inventory, e.g. `student0-inventory`
+
+<img src="/images/ansible_essentials/tower_new_inventory1.png" style="margin-left:2em;max-width:70%;">
+
+Now click on the **Groups** link and the green **+** button to add a new group.
+
+<img src="/images/ansible_essentials/tower_new_inventory2.png" style="margin-left:2em;max-width:70%;">
+
+Fill out the data collector as follows then click the save button:
+
+* **Name** - `web`
+
+<img src="/images/ansible_essentials/tower_new_inventory3.png" style="margin-left:2em;max-width:70%;">
+
+Click on the **Hosts** link followed by the green **+** button to add a new host the the `web` group
+that you just created.
+
+<img src="/images/ansible_essentials/tower_new_inventory4.png" style="margin-left:2em;max-width:70%;">
+
+Fill out the data collector as follows then click the save button:
+
+* **Host Name** - Enter the private IP address of your assigned web server
+
+<img src="/images/ansible_essentials/tower_new_inventory5.png" style="margin-left:2em;max-width:70%;">
+
 
 ###  Exercise 2.26 - Creating Job Templates
+
+Navigate to the templates screen by clicking on the **Templates** link in the sidebar.
+Click the green **+** to create a new template of type **Job Template**.
+
+Fill out the data collector as follows then click the save button:
+
+* **Name** - Your student ID followed by install apache, e.g. `student0-install-apache`
+* **Inventory** - Select the inventory you created that's tagged with your student ID
+* **Project** - Select the project you created that's tagged with your student ID
+* **Playbook** - Select the `install apache` playbook you created during the roles exercise
+* **Credential** - Select the `student-ssh-user` credential
+
+<img src="/images/ansible_essentials/tower_new_template1.png" style="margin-left:2em;max-width:70%;">
+
+After saving your name template navigate back to the list of templates and click the **Rocketship**
+icon to the right of the template you just created.  This will start the template running.
+It may take a few moments for the job to complete - among other work Tower is reaching out to
+Gitlab to make sure it is using the most recent version of your playbooks.
+
+<img src="/images/ansible_essentials/tower_new_template2.png" style="margin-left:2em;max-width:70%;">
+
+When the job is complete it should show green and success.
+
+<img src="/images/ansible_essentials/tower_template_job1.png" style="margin-left:2em;max-width:70%;">
 
 
 ###  Exercise 2.27 - Modifying the Parameters in your Playbook
