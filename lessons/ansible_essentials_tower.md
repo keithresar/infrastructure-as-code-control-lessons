@@ -67,12 +67,38 @@ Then select the green **+** button to create a new project.
 
 <img src="/images/ansible_essentials/tower_projects_before.png" style="margin-left:2em;max-width:70%;">
 
-Fill out the data collector as follows:
+Fill out the data collector as follows then click the save button:
 
 * **Name** - Your student ID followed by infrastructure-as-code, e.g. `student0-infrastructure-as-code`
-* 
+* **SCM Type** - Select `Git`
+* **SCM URL** - Paste the URL you copied from Gitlab.  You will need to modify the URL and append
+  port `:8080` as shown in the picture below
+* **SCM Credential** - Select the Gitlab credential tagged with your student ID that you created
+* Check **Update revision on launch**
 
 <img src="/images/ansible_essentials/tower_new_project.png" style="margin-left:2em;max-width:70%;">
+
+
+###  Exercise 2.25 - Creating Inventories
+
+Ansible Tower needs to know what hosts to act upon, just as when running `ansible-playbook` from the
+command line.  
+
+Navigate to the inventories screen by clicking on the **Inventories** link in the sidebar.
+
+Explore the existing **AWS Inventory**.  This is a dynamic inventory that automatically updates to
+get the current real-time view of EC2 assets before every job run.  This inventory contains
+all the hosts for todays lab.  Please don't break it!
+
+Now return back to the inventory screen and click the green **+** button to create a new inventory
+just for you.
+
+
+###  Exercise 2.26 - Creating Job Templates
+
+
+###  Exercise 2.27 - Modifying the Parameters in your Playbook
+
 
 
 
