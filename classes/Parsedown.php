@@ -98,6 +98,7 @@ class Parsedown
         '<' => array('Comment', 'Markup'),
         '=' => array('SetextHeader'),
         '>' => array('Quote'),
+        '!' => array('Spoiler'),
         '[' => array('Reference'),
         '_' => array('Rule'),
         '`' => array('FencedCode'),
@@ -595,6 +596,24 @@ class Parsedown
         }
     }
 
+    #
+    # Spoiler
+
+    protected function blockSpoiler($Line)
+    {
+        if (preg_match('/^![ ]?(.*)/', $Line['text'], $matches))
+        {
+            $Block = array(
+                'element' => array(
+                    'name' => 'spoiler',
+                    'handler' => 'lines',
+                    'text' => (array) ["<span class='spoiler_warning'>spoiler: </span><span class='spoiler'>".$matches[1]."</span>"],
+                ),
+            );
+
+            return $Block;
+        }
+    }
     #
     # Quote
 

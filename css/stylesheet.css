@@ -9,5 +9,15 @@
     background-color: #cecece;
 }
 
+.spoiler_warning  {
+	font-style: italic;
+	color: gray;
+}
+.spoiler  {
+	color: white;
+}
+.spoiler::selection  {
+	color: green;
+}
 
 
