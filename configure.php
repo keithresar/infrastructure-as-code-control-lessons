@@ -51,7 +51,10 @@ $GLOBALS['LESSONS'] = [
         ],
 
     '3 - Bootstrapping the Translation Wizard' => [
-            'lessons_bootstrapping_' => 'TODO lorem ipsum',
+            'lessons_bootstrapping_server_config' => 'Common Server Configuration',
+            'lessons_bootstrapping_web_config' => 'Web Server Configuration',
+            'lessons_bootstrapping_api_config' => 'API Container Configuration',
+            'lessons_bootstrapping_baseline_performance' => 'Baseline Performance Testing',
         ],
 
     '4 - Managing Security' => [
