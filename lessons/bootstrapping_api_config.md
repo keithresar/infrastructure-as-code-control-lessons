@@ -89,6 +89,19 @@ This is defined in a file on your local server `/tmp/languagelayer_api_key`.
 
 ** Target State **
 
+On API host:
+
+```
+> docker ps
+CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                    NAMES
+af9f1a77fc4d        100.24.70.109:5000/api-student0   "container-entrypo..."   4 seconds ago       Up 3 seconds        0.0.0.0:8080->8080/tcp   api1
+```
+
+From bastion host curl returns response:
+```
+> curl http://10.10.11.217:8080
+{"success": false, "error": "Required 'url' parameter missing"}
+```
 
 ** Hints **
 
@@ -96,6 +109,38 @@ This is defined in a file on your local server `/tmp/languagelayer_api_key`.
 
 Accessing the API key
 ! While you could do a one-time copy/paste to embed the API key into your playbook, that won't fly with infosec.  Therefore use a file type of loopup to pull this in dynamically
+
+Error messages deploying docker container regarding SSL or connection errors
+! Is docker even installed and running?  Login to your api server and work with the docker cli
+
+Error message indicating error pulling image due to http response to https client
+! We're doing everything via plaintext in this lab, so you need to add an insure-registry flag to the docker daemon and make sure it restarted.  Add the following (you will need to change the IP of course) to /etc/sysconfig/docker: INSECURE_REGISTRY="--insecure-registry 100.24.70.109"
+
+
+### Exercise 3.12 Connecting web to API server
+
+On your web server in the file `/var/www/html/configure.php` there are two variables.
+Replace these with the IP address and port where your API server is listening.
+
+
+** Target State **
+
+Changes take affect immediately on reloaded the web page.
+Verify that searching for a valid URL returns a result.  If not the error may be in the web -> api communication
+or the api -> languagelayer communication.
+
+<img src="/images/bootstrapping/web2.png" style="margin-left:2em;max-width:70%;">
+
+
+** Hints **
+
+*Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
+
+
+Verifying if API requests are going from web -> API
+! login to API server and execute: 'docker logs -f api1' to show logs of incoming requests
+
+
 
 
 ### 📗 Resources
