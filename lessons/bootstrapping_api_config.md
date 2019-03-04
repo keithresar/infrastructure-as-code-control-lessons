@@ -142,7 +142,6 @@ Verifying if API requests are going from web -> API
 
 
 
-
 ### 📗 Resources
 
 
