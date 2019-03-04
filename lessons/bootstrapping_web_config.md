@@ -73,27 +73,9 @@ A web browser request to the web server returns the following:
 
 ### Exercise 3.8 Test Functionality
 
-The web content is available from the following git repo:
-
-```
-https://github.com/keithresar/infrastructure-as-code-web
-```
-
-Clone this content to `/var/www/html`
-
-** Post State **
-
-A `curl` or web  browser request to the web server returns the following:
-
-```
-> curl web
-```
-
-
-** Hints **
-
-*Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
-
+Verify that the localhost can successfully get a 200 response code from
+the target web site.  You may want to verify this fails by disabling the
+service.
 
 
 ### 📗 Resources
