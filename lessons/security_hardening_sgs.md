@@ -13,7 +13,7 @@ then over subsequent exercises will regain just enough access for functionality.
 
 ### Exercise 4.1 Applying a Default Deny All Policy
 
-Navigate to the Ansible Tower instance and execute the Job **lorem, ipsum**.
+Navigate to the Ansible Tower instance and execute the Job **Exercise 4.1 Deny All**.
 
 You will need to provide your student number.
 
@@ -24,10 +24,10 @@ After the Ansible Job completes successfully from 4.1 above, verify that the fol
 all fails in your environment.
 
 1. Web browser to the Language Wizard Web site
-2. From the **web** server, unable to curl port 8080 to your API server
+2. From the **web** server, curl to your API server port 8080
+3. ssh to your **web** and **api** server (test an existing playbook - it should fail)
 
 
 ### 📗 Resources
 
- - 
 
