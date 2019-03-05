@@ -62,7 +62,11 @@ Using the `hashi_vault` lookup plugin extract the keys that reside under `aws_ke
 
 *Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
 
-! tbd
+What is the `secret=` variable path?
+! secret=secret/data/aws_keys
+
+How can I store the secret and make it accessible across different plays?
+! Start with a play that only localhost runs and set the fact.  Then in a subsequent play reference it from the hostvars['localhost']['foo'] variable
 
 
 
