@@ -20,7 +20,7 @@ for your own personal lab environment.
 
 <hr>
 
-### 💪  Exercise 1.1 - CGrant Access to bastion Server
+### 💪  Exercise 1.1 - Grant Access to bastion Server
 
 In general this class is not about security, nor have we architected the environment in a way that
 aligns to good corporate information security best practices.  In an effort to reduce any friction
@@ -114,8 +114,10 @@ The exercise is complete once you can:
 * Open the terminal and change to your project directory
 
 Seek assistance if you run into issues with any of the above, or if the display is not rendering
-as expected.
+as expected.  If you see a rendering issue in the terminal like in the screenshot below you will
+need to use Putty to ssh to your target server.
 
+<img src="/images/introduction/che_terminal_broken.png" style="margin-left:2em;max-width:70%;">
 
 
 ### 📗 Resources
