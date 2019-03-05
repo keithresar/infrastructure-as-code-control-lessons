@@ -58,7 +58,9 @@ $GLOBALS['LESSONS'] = [
         ],
 
     '4 - Managing Security' => [
-            'lessons_security_' => 'TODO lorem ipsum',
+            'lessons_security_hardening_sgs' => 'Hardening Your Defaults',
+            'lessons_security_managing_secrets' => 'Managing Secrets',
+            'lessons_security_aws_sgs' => 'Firewall ACLs',
         ],
 
     '5 - Horizontal Scaling' => [
