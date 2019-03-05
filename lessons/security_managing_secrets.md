@@ -35,11 +35,39 @@ Today we will interact with the latter.
 
 <hr>
 
-### Exercise 4.3 
+### Exercise 4.3 Interacting with Vault CLI
+
+HashiCorp Vault includes a CLI with which you can manage secrets.  
+Explore the quick lesson on setting and retrieving secrets using the CLI linked below:
+
+https://learn.hashicorp.com/vault/getting-started/first-secret
+
+Please make sure to select names for your secrets that are tagged with your student number to prent inadvertently
+overwriting another student's data.
+
+For this to work you need to set two environment variables: 
+
+```
+> export VAULT_ADDR=http://127.0.0.1:8200 VAULT_TOKEN='R3dh@t12'
+```
+
+
+### Exercise 4.4 Retrieve Secret for Ansible Vault
+
+Keys for the AWS VPC running the lab's instances are stored in a HashiCorp Vault.  
+Using the `hashi_vault` lookup plugin extract the keys that reside under `aws_keys`.
+
+
+** Hints **
+
+*Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
+
+! tbd
 
 
 
 ### 📗 Resources
 
- - 
+ - [HashiCorp Vault Quick Start](https://learn.hashicorp.com/vault/getting-started/first-secret)
+ - [hashi_vault plugin](https://docs.ansible.com/ansible/latest/plugins/lookup/hashi_vault.html)
 
