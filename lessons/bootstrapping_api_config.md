@@ -114,7 +114,7 @@ Error messages deploying docker container regarding SSL or connection errors
 ! Is docker even installed and running?  Login to your api server and work with the docker cli
 
 Error message indicating error pulling image due to http response to https client
-! We're doing everything via plaintext in this lab, so you need to add an insure-registry flag to the docker daemon and make sure it restarted.  Add the following (you will need to change the IP of course) to /etc/sysconfig/docker: INSECURE_REGISTRY="--insecure-registry 100.24.70.109"
+! We're doing everything via plaintext in this lab, so you need to add an insure-registry flag to the docker daemon and make sure it restarted.  Add the following (you will need to change the IP of course) to /etc/sysconfig/docker: INSECURE_REGISTRY="--insecure-registry 10.10.12.117:5000".
 
 
 ### Exercise 3.12 Connecting web to API server
