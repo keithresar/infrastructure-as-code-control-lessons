@@ -64,7 +64,7 @@ $GLOBALS['LESSONS'] = [
         ],
 
     '5 - Horizontal Scaling' => [
-            'lessons_scaling_ticketsnow' => 'TicketsNow Integration',
+            'lessons_scaling_ticketsnow' => 'TicketsNow Integation',
             'lessons_scaling_f5' => 'F5 Load Balancing',
             'lessons_scaling_multiple_containers' => 'Deploying Multiple API Containers',
             'lessons_scaling_performance_testing' => 'Performance Testing',
