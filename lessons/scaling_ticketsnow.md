@@ -30,6 +30,8 @@ Then [login to the TicketsNow web UI](/i/tickets) to verify your ticket was crea
 The automation you write for use with TicketsNow will be reused by many different playbooks in the
 future.  We'll start by creating a simple role to create a new ticket.
 
+Create a new role `ticketsnow`.  For now create a new playbook `ticketsnow_testing.yml`.
+
 Make use of the URI module to create a ticket.  Use variables to specify the two parameters
 sent to the API:
 
@@ -41,15 +43,36 @@ Store the response tickets ID to the variable `tickets_id`.
 
 ### Exercise 5.3 Add Routing to Your Role
 
+Using a **routing** pattern we can perform multiple related tasks using a single role.
 
+Implement this pattern by:
+
+* When calling your role include the variable `state` as either `new`, `open`, or `closed`.
+* Also include variables such as `ticket_subject`, `ticket_comment`, and `tickets_id`
+  as appropriate
+* In your roles `main.yml` use a switching mechanism like the following and remove all other
+  content from the main.yml file.
+
+```
+---
+- include_tasks: "{{ state }}.yml"
+```
+
+Verify you can still create a new ticket.
 
 
 ### Exercise 5.4 Commenting on an Existing Ticket
 
+Add a new state file inside your role called `update.yml`.
+
+Implement the [TicketNow API for modifying existing tickets](/i/help_ticketnow_api_put_ticketnow).
 
 
 ### Exercise 5.5 Changing Status on an Existing Ticket
 
+Add a new state file inside your role called `closed.yml`.
+
+Implement the [TicketNow API for modifying existing tickets](/i/help_ticketnow_api_put_ticketnow).
 
 
 -------------------------------------------------
