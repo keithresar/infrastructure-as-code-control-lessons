@@ -47,16 +47,29 @@ Create a new role called `import_aws_facts` that executes the `ec2.py` script us
 
 Move the `aws_keys` task from 4.4 into this new role.
 
-After that, create a task that
+After that, create a task that uses the `aws_keys` data to call the `ec2.py` script and store the
+output.  The script output is json and should be accessible from the variable.
+
+Test and execute this role in its own play since you won't be able to access your web and API servers.
+
+Output the `ec2_security_group_ids` associated one of your hosts (you can hardcode an IP address).
 
 
-### Exercise 4.6 Extracting Data for the Current Host
+** Hints **
+
+*Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
+
+The `ec2.py` output isn't recognized as a json / variable in my play
+! Use the from_json filter like this: "{{ ec2_raw.stdout | from_json }}"
 
 
-### Exercise 4.7 Applying the Web Security Group
+### Exercise 4.7 Extracting Data for the Current Host
 
 
-### Exercise 4.8 Applying the API Security Group
+### Exercise 4.8 Applying the Web Security Group
+
+
+### Exercise 4.9 Applying the API Security Group
 
 
 
