@@ -65,16 +65,43 @@ The `ec2.py` output isn't recognized as a json / variable in my play
 
 ### Exercise 4.7 Extracting Data for the Current Host
 
+One challenge we have is that the `ec2.py` script is indexed by public IP, whereas your inventory uses private IPs.
+You could update your inventory to use the public IP instead, or you could perform a lookup using a loop like this:
+
+```
+---
+- set_fact:
+    my_ec2_facts: "{{ item.value.ec2_private_ip_address }}"
+  when: item.value.ec2_private_ip_address == ansible_ssh_host
+  loop: "{{ ec2._meta.hostvars | dict2items }}"
+```
+
+You can test this when run against one of your web or api hosts.  This will fail when running against localhost
+because AWS doesn't maintain that in its inventory.
+
 
 ### Exercise 4.8 Applying the Web Security Group
+
+Start cleaning up all the messing tasks from your `import_aws_facts` role.
+
+The purpose of this role is:
+
+* Find the AWS security group associated with the `ansible_ssh_host`
+* Change the security group ACL policy based on the `acl_policy_ports` variable created when the
+  role is called
+
+Create a new play at the beginning of your `main.yml` that executes against the **web** group,
+does not gather facts, and calls this role to enable the ports you need to communicate with your web server
+
+* ssh - 22/tcp
+* http - 80/tcp
 
 
 ### Exercise 4.9 Applying the API Security Group
 
+Create another play in `main.yml` that executes against the **api** group,
+does not gather facts, and calls this role to enable the ports you need to communicate with your api server
 
+Re-use the same role but change your `acl_policy_ports` variable as needed.
 
-
-### 📗 Resources
-
- - 
 
