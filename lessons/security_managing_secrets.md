@@ -69,7 +69,6 @@ How can I store the secret and make it accessible across different plays?
 ! Start with a play that only localhost runs and set the fact.  Then in a subsequent play reference it from the hostvars['localhost']['foo'] variable
 
 
-
 ### 📗 Resources
 
  - [HashiCorp Vault Quick Start](https://learn.hashicorp.com/vault/getting-started/first-secret)
