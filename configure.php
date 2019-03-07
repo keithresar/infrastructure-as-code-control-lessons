@@ -71,7 +71,7 @@ $GLOBALS['LESSONS'] = [
         ],
 
     '6 - Caching' => [
-            'lessons_caching_' => 'TODO lorem ipsum',
+            'lessons_caching_layer' => 'Adding a Caching Layer',
         ],
 
     '7 - Beyond Basic Testing' => [
