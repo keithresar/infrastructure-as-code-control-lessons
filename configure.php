@@ -75,7 +75,7 @@ $GLOBALS['LESSONS'] = [
         ],
 
     '7 - Beyond Basic Testing' => [
-            'lessons_testing_' => 'TODO lorem ipsum',
+            'lessons_testing_chaos' => 'Introducing Some Chaos',
         ],
 
 	/*
