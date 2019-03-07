@@ -32,7 +32,7 @@ Execute a test with 10 requests and record your results.
 Your output should resemble the following:
 
 ```
-ab -n 10 http://3.85.5.85/api.php?url=http://www.redhat.com
+> ab -n 10 http://10.10.10.77/api.php?url=http://www.redhat.com
 This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/

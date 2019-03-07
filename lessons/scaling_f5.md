@@ -18,13 +18,10 @@ Modify the inventory file inside the `infrastructure-as-code/` directory.
 Add the private IP address associated with your F5 to the `[loadbalancer]` group.
 
 
-### Exercise 5.7 Creating an API node 
+### Exercise 5.7 Creating an API pool
 
-Create a new role called `f5` that you'll use to configure your local traffic
-management.
-
-Inside your role create a play that creates a node for your API server using the
-[bigip_node Ansible module](https://docs.ansible.com/ansible/latest/modules/bigip_node_module.html).
+Inside your role create another task that creates a pool for our API container using the
+[bigip_node module](https://docs.ansible.com/ansible/latest/modules/bigip_pool_module.html).
 
 Use the following parameters for the provider:
 
@@ -34,14 +31,6 @@ Use the following parameters for the provider:
 * `user: "{{ student_user }}"`
 * `password: "{{ student_password }}"`
 
-Make sure to set `connection: local` and `gather_facts: False`.
-
-
-### Exercise 5.8 Creating an API pool
-
-Inside your role create another task that creates a pool for our API container using the
-[bigip_node module](https://docs.ansible.com/ansible/latest/modules/bigip_pool_module.html).
-
 Use the following parameters to the module:
 
 * `name: "{{ student_user }}-pool"`
@@ -49,14 +38,16 @@ Use the following parameters to the module:
 * `monitors: /Common/http`
 * `monitor_type: and_list`
 
+Make sure to set `connection: local` and `gather_facts: False`.
 
-### Exercise 5.9 Adding pool members
+
+### Exercise 5.8 Adding pool members
 
 Inside your role create another task that adds members to the pool for our API container using the
 [bigip_pool_member module](https://docs.ansible.com/ansible/latest/modules/bigip_pool_member_module.html).
 
 
-### Exercise 5.10 Creating VIP for pool
+### Exercise 5.9 Creating VIP for pool
 
 Inside your role create another task that creates a vip for our API container pool using the
 [bigip_virtual_server module](https://docs.ansible.com/ansible/latest/modules/bigip_virtual_server_module.html).
@@ -75,9 +66,9 @@ Use the following parameters to the module:
 Issue a curl to the VIP and your student port to verify traffic is flowing as expected.
 
 
-### Exercise 5.12 Connecting to API role
+### Exercise 5.10 Connecting to API role
 
-While not explicitly noted beforem, this `f5` role should be called in conjunction with managing
+While not explicitly noted before, this `f5` role should be called in conjunction with managing
 your API container's instantiation.
 
 This means the `ansible_ssh_host` variable will point to the API server not your load balancer.
@@ -88,10 +79,9 @@ However, you could do one of the following to access your load balancer IP addre
 
 
 
-### Exercise 5.13 Connecting web to F5
+### Exercise 5.11 Connecting web to F5
 
 On your web server in the file `/var/www/html/configure.php` there are two variables. 
-
 
 Replace these with the IP address and port where your API server is listening.
 
