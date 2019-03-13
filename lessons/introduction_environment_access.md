@@ -4,23 +4,30 @@ All of your activity during this and subsequent labs occurs on a bastion node.  
 node is a Red Hat Linux server that:
 
  - Has the Ansible toolset installed
+ - Hosts the web-based IDE you'll use to modify files
  - Is where all automation activities are initiated
  - Is your virtual home for the rest of the training
 
 Today’s workshop infrastructure is being run in a cloud environment.
-Each student will be assigned a number, e.g. student, student2, student3.
+Each student will be assigned a number, e.g. student1, student2, student3.
  
-Your instructor will supply you with a web site url or paper where you will find detailed info 
-for your own personal lab environment.
+Your instructor will supply you with an **Access Guide** printout (or pdf)
+where you will find **lot** of detailed info for your own personal lab environment.
 
- - Bastion node - used to develop and run Ansible playbooks
- - Lab node(s) - target for all Ansible playbooks
+ - Bastion - used to develop and run Ansible playbooks, hosts Eclipse CHE web-IDE, hosts the lesson
+   guide you're reading
+ - Web and API Servers - your personal targets for all Ansible playbooks
+ - Shared resources such as Ansible Tower (job runner), Gitlab (for SCM), Image Registry (to store docker
+   container images), HashiCorp Vault (secret store), and F5 LTM (load balancer).
+ - Many URLs, public IP addresses, and private IP addresses.  In general use the private IP addresses
+   for communication within the lab and public IP addresses only when you as a student need to access
+   a resource.  Most exercises will clearly show which is needed.
  - Username, password - used to authenticate to all servers.  Each participant has a unique login.
    Please only use your login to prevent unintended errors for other students
 
 <hr>
 
-### 💪  Exercise 1.1 - Grant Access to bastion Server
+### Exercise 1.1 - Grant Access to bastion Server
 
 In general this class is not about security, nor have we architected the environment in a way that
 aligns to good corporate information security best practices.  In an effort to reduce any friction
@@ -30,14 +37,17 @@ passwords.
 To mitigate the risk of someone breaking the public-facing lab environments, we have limited external
 access to your bastion server.  
 
-You will need to execute an Ansible playbook from the control AWX server to enable access.
+You will need to execute an Ansible playbook from the Ansible Towerserver to enable access.
 
-First, navigate to this URL and take note of your IP address:
+First, navigate to this URL and take note of the public IP address for the workstation/VDI endpoint
+you will use for the remainder of the lessons.  Notate this IP address in your paper **Access Guide**
+or elsewhere as appropriate.
+
 https://www.google.com/search?q=what+is+my+ip
 
-Second, take note of your personal student number from your environment access sheet.
+Second, take note of your personal student number from your environment **Access Guide**.
 
-Now, navigate to the control AWS server IP and login using your supplied credentials.
+Now, navigate to the Ansible Tower URL and login using your supplied credentials.
 
 <img src="/images/introduction/awx_login_screenshot.png" style="margin-left:2em;max-width:70%;">
 
@@ -46,11 +56,11 @@ Once you successfulyl login you will see the dashboard screen:
 <img src="/images/introduction/awx_dashboard.png" style="margin-left:2em;max-width:70%;">
 
 Click on the **Templates** link in the sidebar nav, then click the rocket icon to the right of the
-**Bootrap Access** template.
+**Bootstrap Access** template.
 
 <img src="/images/introduction/awx_templates.png" style="margin-left:2em;max-width:70%;">
 
-A survey data collector window will pop up.  Provide the IP address and student number the click **Next**.
+A survey data collector window will pop up.  Provide the IP address and student number then click **Next**.
 Verify the data you submitted then click **Launch**.
 
 <img src="/images/introduction/awx_survey.png" style="margin-left:2em;max-width:70%;">
