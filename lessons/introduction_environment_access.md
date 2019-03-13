@@ -65,12 +65,13 @@ Verify the data you submitted then click **Launch**.
 
 <img src="/images/introduction/awx_survey.png" style="margin-left:2em;max-width:70%;">
 
-Wait for the AWX Ansible job to complete.  Seek assistance if the job has errors.
+Wait for the Ansible Tower job to complete.  Seek assistance if the job has errors.
 
 <img src="/images/introduction/awx_bootstrap_complete.png" style="margin-left:2em;max-width:70%;">
 
 Scroll through the log output and take note of the CHE Workspace URL provided.  It should look
-like ```http://ipaddress:8080/```.
+like ```http://ipaddress:8080/```.  Eclipse CHE is the web-based IDE that will be used for the all
+exercises beginning with section 2.
 
 
 ### ☢ Exercise 1.1 Results
@@ -79,17 +80,19 @@ Take note of the CHE Workspace URL from the log output of the Ansible job you ju
 
 
 
-### 💪  Exercise 1.2 - Access CHE Workspace
+### Exercise 1.2 - Access CHE Workspace
 
-While you can complete all activities directly from the Linux command line on your bastion host, such
-as running Ansible playbooks and modifying files with the `vi` editor, this isn't the only way.  
+While it is possible to complete all activities directly from the Linux command line on your bastion host, such
+as by running Ansible playbooks and modifying files with the `vi` editor, this isn't the only way.  
 
-Our course makes use of the Eclipse CHE Web-based IDE which provides file editing, syntax highlighting,
-git source code management, and a browser-based terminal from which to execute your Ansible playbooks.
+Our course makes use of the [Eclipse CHE Web-based IDE](https://www.eclipse.org/che/) which provides file 
+editing, syntax highlighting, git source code management, and a browser-based terminal from which to execute 
+your Ansible playbooks.
 
 In this exercise we will verify you can access your workspace and that it works as expected.
 
-Navigate to your CHE Workspace using the URL from exercise 1.1.  You should see a screen like the one below.
+Navigate to your CHE Workspace using the URL from exercise 1.1 (a link to the same URL should also exist in
+your Access Guide).  You should see a screen like the one below.
 
 <img src="/images/introduction/che_dashboard.png" style="margin-left:2em;max-width:70%;">
 
@@ -104,13 +107,13 @@ Once the workspace loads you should see a screen like the following:
 <img src="/images/introduction/che_workspace.png" style="margin-left:2em;max-width:70%;">
 
 While an IDE is an incredibly powerful piece of software, your first introduction to it can be quite
-intimidating.  We won't make use of most of the included functionality.  Instead, two specific note
+intimidating.  We won't make use of most of the included functionality.  Instead, take specific note
 of the three areas where we'll be working:
 
 * **1 - File Browser**.  Expand the file tree to open existing files or create new files
 * **2 - Editor Pane**.  Each open file gets its own tab in this pane.  Changes are automatically saved
 * **3 - Terminal**.  Click on the terminal tab to get access to a shell where you can run Ansible.
-  the project you're working on resides in the `/projects/` directory
+  You can access your files in the terminal  by changing to the directory `cd /projects/infrastructure-as-code-lab`.
 
 <img src="/images/introduction/che_workspace_markedup.png" style="margin-left:2em;max-width:70%;">
 
