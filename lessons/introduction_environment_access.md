@@ -25,6 +25,9 @@ where you will find **lot** of detailed info for your own personal lab environme
  - Username, password - used to authenticate to all servers.  Each participant has a unique login.
    Please only use your login to prevent unintended errors for other students
 
+**All exercises should be performed using Google Chrome or Firefox on VDI**.  Microsoft IE and Edge
+have not been performing as expected.
+
 <hr>
 
 ### Exercise 1.1 - Grant Access to bastion Server
@@ -51,7 +54,7 @@ Now, navigate to the Ansible Tower URL and login using your supplied credentials
 
 <img src="/images/introduction/awx_login_screenshot.png" style="margin-left:2em;max-width:70%;">
 
-Once you successfulyl login you will see the dashboard screen:
+Once you successfully login you will see the dashboard screen:
 
 <img src="/images/introduction/awx_dashboard.png" style="margin-left:2em;max-width:70%;">
 
@@ -60,12 +63,21 @@ Click on the **Templates** link in the sidebar nav, then click the rocket icon t
 
 <img src="/images/introduction/awx_templates.png" style="margin-left:2em;max-width:70%;">
 
-A survey data collector window will pop up.  Provide the IP address and student number then click **Next**.
+A survey data collector window will pop up.  Provide the following then click **Next**:
+
+* **Student IP Address** - The public IP address associated with your workstation/VDI that you just
+  noted
+* **Student Number** - The number that follows the word `student` in the **User** section throughout
+  your Access Guide.
+
 Verify the data you submitted then click **Launch**.
 
 <img src="/images/introduction/awx_survey.png" style="margin-left:2em;max-width:70%;">
 
-Wait for the Ansible Tower job to complete.  Seek assistance if the job has errors.
+Wait for the Ansible Tower job to complete.  This job is finalizing the configuration for your
+personal lab environment.
+
+Seek assistance if the job has errors.
 
 <img src="/images/introduction/awx_bootstrap_complete.png" style="margin-left:2em;max-width:70%;">
 
