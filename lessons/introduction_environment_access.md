@@ -52,16 +52,16 @@ Second, take note of your personal student number from your environment **Access
 
 Now, navigate to the Ansible Tower URL and login using your supplied credentials.
 
-<img src="/images/introduction/awx_login_screenshot.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/introduction/awx_login_screenshot.png" style="margin-left:2em;max-width:90%;">
 
 Once you successfully login you will see the dashboard screen:
 
-<img src="/images/introduction/awx_dashboard.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/introduction/awx_dashboard.png" style="margin-left:2em;max-width:90%;">
 
 Click on the **Templates** link in the sidebar nav, then click the rocket icon to the right of the
 **Bootstrap Access** template.
 
-<img src="/images/introduction/awx_templates.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/introduction/awx_templates.png" style="margin-left:2em;max-width:90%;">
 
 A survey data collector window will pop up.  Provide the following then click **Next**:
 
@@ -72,14 +72,14 @@ A survey data collector window will pop up.  Provide the following then click **
 
 Verify the data you submitted then click **Launch**.
 
-<img src="/images/introduction/awx_survey.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/introduction/awx_survey.png" style="margin-left:2em;max-width:90%;">
 
 Wait for the Ansible Tower job to complete.  This job is finalizing the configuration for your
 personal lab environment.
 
 Seek assistance if the job has errors.
 
-<img src="/images/introduction/awx_bootstrap_complete.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/introduction/awx_bootstrap_complete.png" style="margin-left:2em;max-width:90%;">
 
 Scroll through the log output and take note of the CHE Workspace URL provided.  It should look
 like ```http://ipaddress:8080/```.  Eclipse CHE is the web-based IDE that will be used for the all
@@ -106,17 +106,17 @@ In this exercise we will verify you can access your workspace and that it works 
 Navigate to your CHE Workspace using the URL from exercise 1.1 (a link to the same URL should also exist in
 your Access Guide).  You should see a screen like the one below.
 
-<img src="/images/introduction/che_dashboard.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/introduction/che_dashboard.png" style="margin-left:2em;max-width:90%;">
 
 Click on the **ansible** link at the bottom of the sidebar.  You may need to wait while your workspace
 completes loading and building.  Your CHE workspace is backed by a container dedicated to your
 automation work throughout this training.
 
-<img src="/images/introduction/che_workspace_loading.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/introduction/che_workspace_loading.png" style="margin-left:2em;max-width:90%;">
 
 Once the workspace loads you should see a screen like the following:
 
-<img src="/images/introduction/che_workspace.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/introduction/che_workspace.png" style="margin-left:2em;max-width:90%;">
 
 While an IDE is an incredibly powerful piece of software, your first introduction to it can be quite
 intimidating.  We won't make use of most of the included functionality.  Instead, take specific note
@@ -127,7 +127,7 @@ of the three areas where we'll be working:
 * **3 - Terminal**.  Click on the terminal tab to get access to a shell where you can run Ansible.
   You can access your files in the terminal  by changing to the directory `cd /projects/infrastructure-as-code-lab`.
 
-<img src="/images/introduction/che_workspace_markedup.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/introduction/che_workspace_markedup.png" style="margin-left:2em;max-width:90%;">
 
 
 ### ☢ Exercise 1.2 Results
@@ -142,7 +142,7 @@ Seek assistance if you run into issues with any of the above, or if the display 
 as expected.  If you see a rendering issue in the terminal like in the screenshot below you will
 need to use Putty to ssh to your target server.
 
-<img src="/images/introduction/che_terminal_broken.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/introduction/che_terminal_broken.png" style="margin-left:2em;max-width:90%;">
 
 
 ### 📗 Resources

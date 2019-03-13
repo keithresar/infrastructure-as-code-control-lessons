@@ -68,7 +68,7 @@ cosider how to manage local changes and updates to the content from the git sour
 
 A web browser request to the web server returns the following:
 
-<img src="/images/bootstrapping/web1.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/bootstrapping/web1.png" style="margin-left:2em;max-width:90%;">
 
 
 ### Exercise 3.8 Test Functionality

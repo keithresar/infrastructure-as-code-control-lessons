@@ -129,7 +129,7 @@ Changes take affect immediately on reloaded the web page.
 Verify that searching for a valid URL returns a result.  If not the error may be in the web -> api communication
 or the api -> languagelayer communication.
 
-<img src="/images/bootstrapping/web2.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/bootstrapping/web2.png" style="margin-left:2em;max-width:90%;">
 
 
 ** Hints **

@@ -17,7 +17,7 @@ Navigate to the Ansible Tower instance and launch the **Exercise 6.1 Deploy Elas
 
 When the job completes running it will print out the hostname for your new endpoint.
 
-<img src="/images/caching/aws_job_template_output.png" style="margin-left:2em;max-width:70%;">
+<img src="/images/caching/aws_job_template_output.png" style="margin-left:2em;max-width:90%;">
 
 
 ### Exercise 6.2 Connect API to Cache
