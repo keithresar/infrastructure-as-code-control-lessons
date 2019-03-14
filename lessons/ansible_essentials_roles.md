@@ -58,7 +58,7 @@ apache_simple/
 Use the easy button to create this scaffolding by using the `ansible-galaxy` command:
 
 ```
-> ansible-galaxy init apache-simple
+> ansible-galaxy init apache_basic
 ```
 
 

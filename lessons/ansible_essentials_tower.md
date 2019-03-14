@@ -91,7 +91,7 @@ get the current real-time view of EC2 assets before every job run.  This invento
 all the hosts for todays lab.  Please don't break it!
 
 Now return back to the inventory screen and click the green **+** button to create a new inventory
-just for you.
+(standard inventory not a smart inventory) just for you.
 
 <img src="/images/ansible_essentials/tower_inventories_before.png" style="margin-left:2em;max-width:90%;">
 
