@@ -6,9 +6,9 @@ scheduling, integrated notifications and graphical inventory management. And Ans
 and CLI make it easy to embed Ansible Tower into existing tools and processes.
 
 Up to this point you've been running your Ansible automation from the command line calling `ansible-playbook`
-directly.  Ansible Tower let's you get more control over your automation.  Every object in Tower
-(credentials, inventories, templates, etc.) has RBAC tied to it which allows most organizations to
-safely delegate their automation.  A typical division of work might include:
+directly.  Ansible Tower lets you get more control over your automation.  Every object in Tower
+(credentials, inventories, templates, etc.) has robe-based access controls (RBAC) tied to it which allows 
+most organizations to safely delegate their automation.  A typical division of work might include:
 
 * Functional owner (e.g. the load balancing management team) has write access to the
   credential, playbook, and the inventory.  They will create a job template referencing these.
@@ -41,8 +41,8 @@ Then select the green **+** button to create a new credential.
 Fill in the data collector as follows:
 
 * **Name** - Your student ID followed by gitlab, e.g. `student0-gitlab`
-* **Credential Type** - Select `Source Control`
-* **Username** - Your student ID
+* **Credential Type** - Search for `Source Control`
+* **Username** - Your student ID, e.g. `student0`
 * **Password** - Your student password
 
 <img src="/images/ansible_essentials/tower_new_credential.png" style="margin-left:2em;max-width:90%;">
@@ -69,7 +69,7 @@ Then select the green **+** button to create a new project.
 
 Fill out the data collector as follows then click the save button:
 
-* **Name** - Your student ID followed by infrastructure-as-code, e.g. `student0-infrastructure-as-code`
+* **Name** - Your student ID followed by infrastructure-as-code-lab, e.g. `student0-infrastructure-as-code-lab`
 * **SCM Type** - Select `Git`
 * **SCM URL** - Paste the URL you copied from Gitlab.  You will need to modify the URL and append
   port `:8080` as shown in the picture below
@@ -150,11 +150,11 @@ When the job is complete it should show green and success.
 <img src="/images/ansible_essentials/tower_template_job1.png" style="margin-left:2em;max-width:90%;">
 
 
-###  Exercise 2.27 - Modifying the Parameters in your Playbook
+### Exercise 2.27 - Modifying the Parameters in your Playbook
 
 Remember those variables we created when setting up Apache on your web server?  We hard coded those
 within the playbook.  Obviously that isn't best practice outside of a learning environment.  Ansible
-Tower let's us overwrite those variable either when defining the job template or at run time.
+Tower let's us overwrite those variables either when defining the job template or at run time.
 
 Edit your job template again and check the **Prompt at Launch** box to the right of the **Extra Vars**
 text area at the bottom of the screen then save your template again.
