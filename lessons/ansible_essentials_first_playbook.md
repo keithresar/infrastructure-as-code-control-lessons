@@ -9,12 +9,18 @@ The goal of a task is to implement modules against those hosts.
 
 <hr>
 
-### 💪  Exercise  2.5 - Defining Your Play
+### Exercise  2.5 - Defining Your Play
 
 For our first playbook, we are only going to write one play and two tasks.
 
-Change to the `2.5_first_playbook` directory and notice the files present as we will follow a similar
-approach for all subsequent lessons:
+Change to the `2.5_first_playbook` directory in your terminal, and expand the directory in the file browser view within CHE.
+
+```
+> cd /projects/infrastructure-as-code/2.5_first_playbook
+```
+
+Notice the files present as we will follow a similar
+approach for the rest of this section:
 
 * `install_apache.yml` - This is an empty file and where you should work
 * `install_apache_SOLUTION_2.5.yml` - This is a commented file with the solutions for the labeled exercise
@@ -26,6 +32,7 @@ Now please open the empty file `install_apache.yml` and add the following lines:
 - hosts: web
   name: Install the Apache web service
   become: yes
+
 ```
 
 Note that spacing is important in yaml files - keep each of the keys "hosts", "name", and "become" lined up.
@@ -43,16 +50,17 @@ Now getting to the three lines of ansible you just wrote.  These lines mean the 
  - **`become:`** - Specifies that we will execute as root (we will **become** root via `sudo`).
    This enables user privilege escalation. While the default is `sudo`, `su`, `pbrun`, and several others are also supported
 
+*Note that the CHE web-IDE automatically saves the changes you make so there is no requirement to manually save files.*
 
 
-### 💪  Exercise  2.6 - Adding Tasks to Your Play
+### Exercise  2.6 - Adding Tasks to Your Play
 
 Now that we’ve defined your play, let’s add some tasks to get some things done. 
 
-Inside the same `install_apache.yml` file, add the following lines.  Note that the `t` in "task" but align with 
+Inside the same `install_apache.yml` file, add the following lines.  Note that the `t` in "task" must align with 
 the `b` in "become".
 
-Spacing continues to be important and its this spacing that establishes the parent/child relationship between 
+Spacing continues to be important and it's this spacing that establishes the parent/child relationship between 
 elements throughout the yaml file.
 
 **Note** If you want to see the entire playbook for reference, skip to the bottom of this exercise or review 
@@ -86,7 +94,7 @@ Now getting to the lines of ansible you just wrote.  These lines mean the follow
    parameters to the specified modules.  Each module take zero or more parameters.  These parameters affect how the 
    module executes.  In this example,
    `state: present` is common pattern used by ansible to mean "make sure this thing exists".  In the case of the 
-   `yum` module, the thing is `httpd` - the Apache web server package
+   `yum` module, the thing is `httpd` - that's the Apache web server package
  
 For good measure, let’s repeat ourselves a bit here because this is important.
 These three lines below are calling the ansible module `yum` to install `httpd`. 
@@ -120,7 +128,7 @@ to the office, read up on this YAML Syntax a bit more and it will save you some 
 playbook should look like this. Take note of the spacing and alignment.
 
 Here is a copy of the complete playbook ready to go if you want to cheat and copy/paste.  That said, if you are cheating you will
-have the best luck using the solution file that already existsin your work directory.
+have the best luck using the solution file that already exists in your work directory.
 
 ```
 ---
@@ -145,8 +153,8 @@ have the best luck using the solution file that already existsin your work direc
 
 Ansible playbooks are executed using a different binary than the ad-hoc command we worked with in the last section.
 
-Run the following command on your control node from your home directory (this is the directory you were placed in when
-you first logged into the server).
+Run the following command inside the terminal to execute this what you've just written (this needs to run
+in the `2.5_first_playbook/` directory).
 
 ```
 > cd /projects/infrastructure-as-code-lab/2.5_first_playbook
@@ -156,6 +164,7 @@ you first logged into the server).
 (or, if you are cheating this command will execute using the solution file directly):
 
 ```
+> cd /projects/infrastructure-as-code-lab/2.5_first_playbook
 > ansible-playbook install_apache_SOLUTION_2.6.yml
 ```
 
@@ -212,11 +221,11 @@ idempotent - meaning you can execute the same task repeatedly and it will only m
 match the current state.
 
 
-### 💪  Exercise  2.8- Removing Apache
+### Exercise  2.8 Removing Apache
 
 Now we’re going to be less explicit about how to complete the exercise.  
 
-Duplicate the content in your existing file and name it `apache_uninstall.yml`.
+Duplicate the content in your existing file and name it `uninstall_apache.yml`.
 
 Modify your file so it successfully removes apache (don’t forget to stop the service first).
 Reference the [yum module](http://docs.ansible.com/ansible/latest/yum_module.html) and 

@@ -20,7 +20,7 @@ To ease setup, and because our lab environment is so simple, we have created a b
 you which is located in your `/projects/infrastructure-as-code/` directory.  We will use mostly the defaults
 except for a couple of values.
 
-From CHE, open the `ansible.cfg` file.  It should contain the following lines:
+From CHE, open the `ansible.cfg` file.  It should be preconfigured with the following lines:
 
 ```
 [defaults]
@@ -42,6 +42,7 @@ The three values above accomplish the following:
  - **host_key_checking** - This is a lab, so do not verify trust
  - **inventory** - This points to the static inventory file that we explore in exercise 2.2
 
+*Note - you aren't making any changes to the `ansible.cfg` file, just reviewing it.*
 
 
 ### ☢ Exercise 2.1 Results
@@ -56,6 +57,6 @@ tunables that make sure Ansible plays well with your existng environment.
 ### 📗 Resources
 
  - [Ansible configuration](http://docs.ansible.com/ansible/latest/intro_configuration.html)
- - `ansible-config` command utility gives you visiblity into the actual configuration you
-   execute with
+ - `ansible-config` command line utility gives you visiblity into the actual configuration you
+   execute with.  If you are curious you may execute this from within the CHE terminal window
 
