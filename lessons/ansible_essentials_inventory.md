@@ -88,30 +88,27 @@ special variables.
 
 <hr>
 
-### 💪  Exercise 2.2 - Review and configure your static inventory
+### Exercise 2.2 - Review and configure your static inventory
 
 Your account has a static inventory in the .ini format in your home diretory.
 
-Open this file in CHE.
+Open the file `inventory` in CHE.
 
 Your inventory file has a number of groups defined and is well commented.  Notice how groups can have a 
 parent/child relationship and where variables within a group scope are defined.
 
 Add the private IP address for your lab server(s) inside the `[web]` and `[api]` groups.  For 
-example, if the IP address for your lab web note is `10.10.10.24` then the relevant section of your inventory 
-file would look like:
+example, if the IP address for your lab web node is `10.10.10.24` then the relevant section of your inventory 
+file would look like the following (use the IP address from your Access Guide not what's in the text here):
 
 ```
 [web]
 10.10.10.24
 ```
 
-Save changes made to your file.
-
-
 ### ☢ Exercise 2.2 Results
 
-The IP address for your lab node should now be defined in your `inventory` file.
+The IP address for your web and API servers should now be defined in your `inventory` file.
 We will test this in the next exercise.  If the test fails, come back to this section and verify everything
 was defined as expected.
 

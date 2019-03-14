@@ -3,7 +3,7 @@
 Certain settings in Ansible are adjustable via a configuration file written in the `.ini` format.
 The stock configuration should be sufficient for most users, but there may be reasons you would want to change them.
 
-Changes can be made and used in a configuration file which will be processed in the following order:
+Changes can be made and used in a configuration file which will be processed in the following order of priority:
 
  - `ANSIBLE_CONFIG` (an environment variable)
  - `ansible.cfg` (in the current directory)
@@ -14,7 +14,7 @@ Ansible will process the above list and use the first file found. Settings in fi
 
 <hr>
 
-### 💪  Exercise 2.1- Review ansible.cfg
+### Exercise 2.1- Review ansible.cfg
 
 To ease setup, and because our lab environment is so simple, we have created a basic `ansible.cfg` file for
 you which is located in your `/projects/infrastructure-as-code/` directory.  We will use mostly the defaults
@@ -26,7 +26,7 @@ From CHE, open the `ansible.cfg` file.  It should contain the following lines:
 [defaults]
 retry_files_enabled = False
 host_key_checking = False
-inventory= inventory
+inventory = inventory
 private_key_file=files/student-ssh-public-key
 
 [ssh_connection]
@@ -38,7 +38,7 @@ groups (denoted by square brackets).
 
 The three values above accomplish the following:
 
- - **retry_files_enabled** - Disable failed automation recovery
+ - **retry_files_enabled** - Disable failed automation recovery (this keeps your workspace cleaner)
  - **host_key_checking** - This is a lab, so do not verify trust
  - **inventory** - This points to the static inventory file that we explore in exercise 2.2
 
