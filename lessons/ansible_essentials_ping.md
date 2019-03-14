@@ -6,7 +6,7 @@ None of the rest of our work will succeed if this test fails.
 
 <hr>
 
-### 💪  Exercise 2.3 - Ansible Ping
+### Exercise 2.3 - Ansible Ping
 
 Ansible includes a `ping` module - but this is far more than a simple network ICMP ping.
 
@@ -22,13 +22,14 @@ automation.  This module will perform the following tests for you:
 If all of the above succeed then this job will return success.
 
 While we can write a playbook for this simple test, this is most often done via the command
-line instead (fun facts - you can do a LOT with Ansible via the command line, but this clearly
+line instead (fun fact - you can do a LOT with Ansible via the command line, but this clearly
 breaks a typical infrastructure and code mission statement).
 
 From your terminal enter the following command:
 
 ```
-> ansible all -p ping
+> cd /projects/infrastructure-as-code/
+> ansible all -m ping
 ```
 
 Ansible also includes a similar module for Windows servers called `win_ping`.  The difference with this
@@ -51,7 +52,7 @@ A successful response will be colored in green and look like the following:
 ```
 
 
-### 💪  Exercise 2.4 - Ansible Ping via Playbook
+### Exercise 2.4 - Ansible Ping via Playbook
 
 We all agree that ad-hoc actions via the command line don't align to our mission.  
 No problem.  We can accomplish the same thing via an Ansible playbook.
@@ -63,6 +64,7 @@ learn about all the part.
 Execute the file with the following command line to run the same test:
 
 ```
+> cd /projects/infrastructure-as-code-lab/2.4_ping/
 > ansible-playbook ping.yml
 ```
 
