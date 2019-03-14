@@ -10,7 +10,7 @@ In this last exercise we will get a baseline performance on which to build.
 
 ### Exercise 3.13 Execute Apache Benchmarking Tool
 
-The tool `ab` should already be installed on your development workstation.  This tool ships with the
+The tool `ab` should already be installed.  This tool ships with the
 Apache httpd web server and it  is  designed  to give  you  an  impression  of how your current Apache 
 installation performs. This especially shows you how many requests per second your Apache installation 
 is capable of serving.

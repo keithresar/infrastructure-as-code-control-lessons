@@ -42,13 +42,14 @@ Explore the quick lesson on setting and retrieving secrets using the CLI linked 
 
 https://learn.hashicorp.com/vault/getting-started/first-secret
 
-Please make sure to select names for your secrets that are tagged with your student number to prent inadvertently
+Please make sure to select names for your secrets that are tagged with your student number to prevent inadvertently
 overwriting another student's data.
 
-For this to work you need to set two environment variables: 
+For this to work you need to set two environment variables.  You can do this by pasting the following into your
+CHE terminal (change the IP address to the HashiCorp Vault value from your Access Guide). 
 
 ```
-> export VAULT_ADDR=http://127.0.0.1:8200 VAULT_TOKEN='R3dh@t12'
+> export VAULT_ADDR=http://10.10.12.82:8200 VAULT_TOKEN='R3dh@t12'
 ```
 
 

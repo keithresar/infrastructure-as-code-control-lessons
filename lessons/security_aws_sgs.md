@@ -1,6 +1,6 @@
 # Firewall ACLs
 
-Now that we are set with a  default deny policy on our AWS Security Groups, we need to add back in
+Now that we are set with a default deny policy on our AWS Security Groups, we need to add back in
 the exact access we need.
 
 <hr>
@@ -82,7 +82,7 @@ because AWS doesn't maintain that in its inventory.
 
 ### Exercise 4.8 Applying the Web Security Group
 
-Start cleaning up all the messing tasks from your `import_aws_facts` role.
+Start cleaning up all the messy tasks from your `import_aws_facts` role.
 
 The purpose of this role is:
 
