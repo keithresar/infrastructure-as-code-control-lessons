@@ -1,15 +1,15 @@
 # Adding Variables, Loops and a Handler
 
 Ansible has all the common constructs you’d expect of a programming or scripting language, including
-conditions, variables, and loops.  In the next excercise we explore these.
+conditionals, variables, and loops.  In the next excercise we explore these.
 
 <hr>
 
 ###  Exercise 2.9 - Defining Variables
 
-Change to the `2.9_loops_variables` directory.  We will be building on the content you've already created,
-so either copy your `2.5_first_playbook/install_apache.yml` file to this directory or modify the template
-`install_apache.yml` that we've provided.
+Change to the `/projects/infrastructure-as-code-lab/2.9_loops_variables/` directory.  We will be building
+on the content you've already created, so either copy your `2.5_first_playbook/install_apache.yml` file 
+to this directory or modify the template `install_apache.yml` that we've provided.
 
 We start by defining variables.  There are two dozen different levels of scope within ansible.  Yes, this
 is intimidating if you actually try to understand them all (see resources below if you want to read up on
@@ -25,15 +25,15 @@ Modify the play definition to add in the `vars` definition below.
 
 ```
 ---
- - hosts: web
-   name: Install the apache web service
-   become: yes
-   vars:
-     httpd_test_message: Hello, this is my test message
-     httpd_port: 80
-     httpd_packages:
-       - httpd
-       - mod_wsgi
+- hosts: web
+  name: Install the apache web service
+  become: yes
+  vars:
+    httpd_test_message: Hello, this is my test message
+    httpd_port: 80
+    httpd_packages:
+      - httpd
+      - mod_wsgi
 ```
 
 ###  Exercise 2.10 - Using Variables in a Loop
@@ -41,12 +41,12 @@ Modify the play definition to add in the `vars` definition below.
 Modify the task that calls the `yum` module so it looks like the following:
 
 ```
-   tasks:
-     - name: Install packages
-       yum:
-         name: "{{ item }}"
-         state: present
-       loop: "{{ httpd_packages }}"
+  tasks:
+    - name: Install packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ httpd_packages }}"
 ```
 
 We are introducing two new elements with this task:
@@ -56,10 +56,10 @@ We are introducing two new elements with this task:
  - **`{{ item }}`** - This is a special variable that is declared by the loop itself.  With each iteration the
    value is updated to the next value in the list.  (ignore the `{{ }}` notation for now).
 
-This task will effective run the following two operations for us:
+This task will effectively run the following two operations for us:
 
- - Install package httpd
- - Install package mod_wsgi
+ - Install package httpd (the Apache web server)
+ - Install package mod_wsgi (an Apache module)
 
 
 ###  Exercise 2.11 - Configure Apache
@@ -107,13 +107,12 @@ Make your new task look like this:
          dest: /var/www/html/index.html
 ```
 
-The `template` does two things - it generates a custom file from a static source then migrates it to the target host.
+The `template` does two things - it generates a custom file from a static source then copies it to the target host.
 Here is a bit more detail on the flow:
 
  - The source file is located on your local server (is it hidden in the `templates/` directory)
  - The file is run through a templating engine called `jinja2`
- - If the newly generated file differs from what exists at the target,
-   Ansible copies the new file to the target
+ - If the newly generated file differs from what exists at the target, Ansible copies the new file to the target
 
 Do not skim over this - the `template` module is a game changer if you are coming from managing things from a bash script.
 
@@ -207,7 +206,7 @@ If not, why not?
 
 ###  Exercise 2.16 - Changing Your Apache Configuration For Real Using a Handler
 
-configuration changes to your apache web server only take affect when reloading or restarting the service.
+Configuration changes to your apache web server only take affect when reloading or restarting the service.
 
 Since the web server was already running your `start httpd` task never ran again.  We need to fix that.
 
@@ -239,7 +238,7 @@ Before re-executing your playbook you will need to change the `httpd_port` to ye
 because the handler only fires when a change is made to the notifying task.
 
 If you are lost, below is a full dump of what our current file looks like.  You can also see this same file at 
-`workshop_solutions/ansible_loops.yml` on your control server.
+`install_apache_SOLUTION_2.16.yml` in your working directory.
 
 ```
 - hosts: web
