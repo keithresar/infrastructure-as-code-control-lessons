@@ -13,10 +13,10 @@ Let’s begin with seeing how your `install_apache.yml` will break down into a r
 
  - Quick learning - what is a role (watch some slides for that)
  - Create the scaffolding for a role
- - Decompose your `install_apache.yml` playbook into the role
+ - Decompose your `install_apache.yml` playbook into the role but putting your automation into different files
  - Execute your playbook and hopefully everything still works
 
-Sure, this seems like a lot of work but this is just a toy example here.  Roles are typically implemented for
+Sure, this seems like a lot of work, but this is just a toy example here.  Roles are typically implemented for
 two primary reasons:
 
  - Keeping all dependencies together within a single version controlled repo
@@ -55,7 +55,7 @@ apache_simple/
     └── main.yml
 ```
 
-Use the easy button to create this scaffolding on your control node by using the `ansible-galaxy` command:
+Use the easy button to create this scaffolding by using the `ansible-galaxy` command:
 
 ```
 > ansible-galaxy init apache-simple
@@ -104,8 +104,8 @@ that, we defined some variables in `vars/` which have a higher precedence than d
 
 **templates**
 
-Roles are self-contained - no external dependencies.  This is awesome, and forces good hygiene for your "nfrastructure as code".
-Copy the `index.html.j2 we used into your role’s `templates/` directory.  Once that’s done, any task that uses the `template`
+Roles are self-contained - no external dependencies.  This is awesome, and forces good hygiene for your "infrastructure as code".
+Copy the `index.html.j2` we used into your role’s `templates/` directory.  Once that’s done, any task that uses the `template`
 module will automatically look for the template in that directory (take note of this, and update your task appropriately).
 
 ```

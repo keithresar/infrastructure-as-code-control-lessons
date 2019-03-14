@@ -1,10 +1,11 @@
 # Git Introduction
 
 Version control is a key component to successfully supporting an infrastructure as code culture.
-Git is a decentralized VCS which truly enables a new flexibility in collaboration that was never
-fully available with more traditional Enterprise VCS solutions such as cvs, svn, tfs, and others.
+Git is a decentralized VCS (version control system) which truly enables a new flexibility in 
+collaboration that was never fully available with more traditional Enterprise VCS solutions such as 
+cvs, svn, tfs, and others.
 
-Git is an incredibly powerful tool and it is grown substantially since Linux Torvalds first wrote it
+Git is an incredibly powerful tool and it has grown substantially since Linus Torvalds first wrote it
 during a weekend of programming back in 2005.  Many companies have been established to add value
 throughout the git lifecycle.  
 
@@ -18,6 +19,7 @@ most commonly used functionality.
 This entire exercise will be completed inside your terminal.
 
 Please change to your home directory outside of the project space where you've been working so far.
+A shorcut to get there is to simply type `cd` and enter.
 
 ```
 > cd
@@ -34,11 +36,10 @@ To create a new git repository called `test-repo` issue the following command:
 > git init test-repo
 ```
 
-If you change into the `test-repo` directory and explore you'll notice a number of files created
+If you explore the `test-repo` directory you'll notice a number of files created
 under a hidden `.git/` subdirectory.  Git stores its entire database locally inside of this directory.
 
 ```
-> cd test-repo
 > find test-repo
 ```
 
@@ -178,7 +179,7 @@ you:
 When you complete the exercise please change back to your project directory
 
 ```
-> cd /projects/infrastructure-as-code
+> cd /projects/infrastructure-as-code-lab
 ```
 
 
@@ -205,7 +206,7 @@ Now navigate to the **SSH -> VCS**  section.  Click **Generate Key**.
 
 <img src="/images/ansible_essentials/che_ssh_vcs.png" style="margin-left:2em;max-width:90%;">
 
-Enter the private IP address for the Gitlab server into the dialogue and click **OK**.
+Enter the private IP address (starts with `10.10.12.`) for the Gitlab server into the dialogue and click **OK**.
 
 <img src="/images/ansible_essentials/che_ssh_vcs_hostname.png" style="margin-left:2em;max-width:90%;">
 
@@ -216,8 +217,8 @@ Select to view the newly generated public key and copy it to your clipboard.
 
 **Gitlab Setup**
 
-Switching gears a bit, now you need to login to Gitlab from the URL in your access sheet and using 
-the student login credentials you've been assigned.
+Switching gears a bit, now you need to login to Gitlab from the URL in your Access Guide and authenticate
+using the student login credentials you've been assigned.
 
 <img src="/images/ansible_essentials/gitlab_login.png" style="margin-left:2em;max-width:90%;">
 
@@ -230,7 +231,7 @@ Click **SSH Keys** half-way down the lefthand sidebar.
 
 <img src="/images/ansible_essentials/gitlab_settings.png" style="margin-left:2em;max-width:90%;">
 
-Paste the key that you just generated within CHE and copied to youir clipboard into the **Key** 
+Paste the key that you just generated within CHE and copied to your clipboard into the **Key** 
 field, enter a **Title**, then press the **Add Key** button.
 
 <img src="/images/ansible_essentials/gitlab_add_ssh_key.png" style="margin-left:2em;max-width:90%;">
@@ -239,14 +240,14 @@ When you public key has been saved to your Gitlab server the screen should look 
 
 <img src="/images/ansible_essentials/gitlab_ssh_keys.png" style="margin-left:2em;max-width:90%;">
 
-CHE should not be able to authenticate as your student account within Gitlab.
+CHE should now be able to authenticate as your student account within Gitlab.
 
 From Gitlab let's create a new project (their term for a git repository).  Navigate to the **Plus**
 menu in the middle of the navbar then select **New project**.
 
 <img src="/images/ansible_essentials/git_new_project.png" style="margin-left:2em;max-width:90%;">
 
-Name your project **infrastructure-as-code** and leave all other settings at their default values.
+Name your project **infrastructure-as-code-lab** and leave all other settings at their default values.
 
 <img src="/images/ansible_essentials/git_new_project2.png" style="margin-left:2em;max-width:90%;">
 
@@ -271,8 +272,17 @@ From your CHE workspace navigate to the **Git -> Remotes -> Remotes** menu.
 
 Click the **Add** button to bring up the **Add Remote Repository** dialogue.  For the name
 write `gitlab` and paste the URL you copied for Gitlab in the **Location** section.  Don't close the
-dialogue just yet, as an artifact of Gitlab running in a container the URL contains a funny hostname.
+dialogue just yet, since we need to change the URL a bit (an artifact of Gitlab running in a container 
+is that the URL contains a funny hostname).
+
 Change the hostname from the random looking string to the private IP address of the Gitlab server.
+In the example below that is `20f8e44fd7d8` and replace it with the private IP address for Gitlab.
+
+```
+ssh://git@20f8e44fd7d8:8022/student0/infrastructure-as-code-lab.git   -- Old broken
+ssh://git@10.10.12.82:8022/student0/infrastructure-as-code-lab.git    -- Fixed!
+```
+
 Then from **OK**.
 
 <img src="/images/ansible_essentials/che_remotes.png" style="margin-left:2em;max-width:90%;">
