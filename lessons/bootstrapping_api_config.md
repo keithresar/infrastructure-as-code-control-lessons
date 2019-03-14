@@ -1,12 +1,14 @@
 # API Configuration
 
-Our solution is running one internal microservice access via http/json which acts as an API
+Our solution is running one internal microservice accessable via http/json which acts as an API
 for the web front-end delivered in the previous exercise.
 
-The API service is delivered via a container.  It has a dependency in that it calls out to an external
+The API service is run inside a docker container.  It has a dependency in that it calls out to an external
 service.
 
-During this series of exercises you will create the container image for the API service and launch it.
+During this series of exercises you will create the container image for the API service and launch it
+on the api server.
+
 
 <hr>
 
@@ -51,26 +53,26 @@ https://github.com/keithresar/infrastructure-as-code-language-api
 ```
 
 Infosec requires there be no source code residing on our application servers, so check this code
-out locally, build the image, then push it to the image registry.
+to localhost and build the image locally before pushing it to the image registry.
 
 Tag your image with your student username to avoid conflicts (e.g. `api-student0`).
-
-
-** Original State **
-
-
-** Target State **
 
 
 ** Hints **
 
 *Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
 
+How do I build a container with Ansible?
+! Use the docker_image module
+
 Missing Package Errors
 ! Then add the missing packages!  Make sure you do so on the correct server
 
 SSL Connection Errors
 ! If you are getting errors related to SSL connections then change your parameters to force going via plaintext
+
+I give up!
+! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/api/3.10_build_image.yml.
 
 
 ### Exercise 3.11 Deploy Container onto API Server
@@ -82,9 +84,6 @@ on port 8080.
 You will need to pass an environment variable `LANGUAGELAYER_API_KEY` to the container 
 that contains an API key to the external LangaugeLayer service that we'll be using.
 This is defined in a file on your local server `/tmp/languagelayer_api_key`.
-
-
-** Original State **
 
 
 ** Target State **
@@ -107,7 +106,7 @@ From bastion host curl returns response:
 
 *Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
 
-Accessing the API key
+Accessing the LanguageLayer API key
 ! While you could do a one-time copy/paste to embed the API key into your playbook, that won't fly with infosec.  Therefore use a file type of loopup to pull this in dynamically
 
 Error messages deploying docker container regarding SSL or connection errors
@@ -115,6 +114,9 @@ Error messages deploying docker container regarding SSL or connection errors
 
 Error message indicating error pulling image due to http response to https client
 ! We're doing everything via plaintext in this lab, so you need to add an insure-registry flag to the docker daemon and make sure it restarted.  Add the following (you will need to change the IP of course) to /etc/sysconfig/docker: INSECURE_REGISTRY="--insecure-registry 10.10.12.117:5000".
+
+I give up!
+! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/api/3.11_deploy_one_image.yml.
 
 
 ### Exercise 3.12 Connecting web to API server
@@ -125,8 +127,8 @@ Replace these with the IP address and port where your API server is listening.
 
 ** Target State **
 
-Changes take affect immediately on reloaded the web page.
-Verify that searching for a valid URL returns a result.  If not the error may be in the web -> api communication
+Changes take affect immediately on reloading the web page.
+Verify that searching for a valid URL returns a result.  If not, the error may be in the web -> api communication
 or the api -> languagelayer communication.
 
 <img src="/images/bootstrapping/web2.png" style="margin-left:2em;max-width:90%;">
@@ -137,11 +139,15 @@ or the api -> languagelayer communication.
 *Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
 
 
+Make sure you are working in the right role!
+! This work occurs in the web role not the api role from the earlier exercises
+
 Verifying if API requests are going from web -> API
 ! login to API server and execute: 'docker logs -f api1' to show logs of incoming requests
 
+I give up!
+! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/web/3.12_api_variables.yml.
 
 
 ### 📗 Resources
-
 

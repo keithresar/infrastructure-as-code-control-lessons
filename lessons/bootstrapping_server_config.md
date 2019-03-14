@@ -96,7 +96,7 @@ Getting your hosts role.
 ! If you feel advanced you can explore the group_names variable.  Or the easier but less flexible solution is to define a variable in the inventory.  This is a special Ansible variable - lookup up special variables for more details.
 
 I give up!
-! Look at the solutions in the file /home/student3/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/common_server/3.2_hostname.yml.
+! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/common_server/3.2_hostname.yml.
 
 
 ### Exercise 3.3  Configure DNS
@@ -141,7 +141,7 @@ Best module to change this text
 ! Make use of the lineinfile module
 
 I give up!
-! Look at the solutions in the file /home/student3/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/common_server/3.3_dns.yml.
+! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/common_server/3.3_dns.yml.
 
 
 ### Exercise 3.4  Apply a Login Banner
@@ -177,7 +177,7 @@ Best module to change this text
 ! Make use of the uri module
 
 I give up!
-! Look at the solutions in the file /home/student3/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/common_server/3.4_motd.yml.
+! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/common_server/3.4_motd.yml.
 
 
 

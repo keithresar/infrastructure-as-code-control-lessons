@@ -23,7 +23,8 @@ exercise inside the `translation_wizard_SOLUTIONS/` directory.
 Wherever possible we request you create an Ansible **Role** to package your automation rather than
 writing everything directly inside of a single playbook.
 
-Your final playbooks version should all reside in the existing `main.yml` file.
+Your final playbooks version should all point to the the existing `translation_wizard/main.yml` file.
+(Not one of the other `main.yml` files associated with your roles).
 
 To ease testing (especially as you get to later exercises) you may want to create alternate files for
 an easier *inner-loop* development instead of executing all of `main.yml`.  Alternately, effective use
@@ -52,6 +53,16 @@ Also, make sure the web server is accessible via port 80 and that the service co
 A `curl` or web  browser request to the web server returns the test page you created in a previous exercise.
 
 
+** Hints **
+
+*Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
+
+How do I install packages?
+! Investigate the yum module
+
+I give up!
+! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/web/3.6_packages.yml.
+
 
 ### Exercise 3.7 Deploy web site content
 
@@ -69,6 +80,17 @@ cosider how to manage local changes and updates to the content from the git sour
 A web browser request to the web server returns the following:
 
 <img src="/images/bootstrapping/web1.png" style="margin-left:2em;max-width:90%;">
+
+
+** Hints **
+
+*Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
+
+How do I checkout code from a git repo?
+! Investigate the git module
+
+I give up!
+! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/web/3.7_content.yml.
 
 
 ### Exercise 3.8 Test Functionality
