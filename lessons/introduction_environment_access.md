@@ -136,7 +136,7 @@ The exercise is complete once you can:
 
 * Access your CHE workspace
 * Select a file from the browser pane and open it in the editor pane
-* Open the terminal and change to your project directory
+* Open the terminal and change to your project directory with the command `cd /projects/infrastructure-as-code`
 
 Seek assistance if you run into issues with any of the above, or if the display is not rendering
 as expected.  If you see a rendering issue in the terminal like in the screenshot below you will
