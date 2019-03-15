@@ -1124,6 +1124,7 @@ class Parsedown
                     'text' => $matches[1],
                     'attributes' => array(
                         'href' => $url,
+                        'target' => '_blank',
                     ),
                 ),
             );
@@ -1196,6 +1197,7 @@ class Parsedown
                 'attributes' => array(
                     'src' => $Link['element']['attributes']['href'],
                     'alt' => $Link['element']['text'],
+                    'target' => '_blank',
                 ),
             ),
         );
@@ -1216,6 +1218,7 @@ class Parsedown
             'attributes' => array(
                 'href' => null,
                 'title' => null,
+                'target' => '_blank',
             ),
         );
 
@@ -1370,6 +1373,7 @@ class Parsedown
                     'text' => $matches[0][0],
                     'attributes' => array(
                         'href' => $matches[0][0],
+                        'target' => '_blank',
                     ),
                 ),
             );
@@ -1391,6 +1395,7 @@ class Parsedown
                     'text' => $url,
                     'attributes' => array(
                         'href' => $url,
+                        'target' => '_blank',
                     ),
                 ),
             );
