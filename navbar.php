@@ -14,11 +14,19 @@
               </a>
             </li>
             <li class="nav-item <?php echo preg_match("/^editor/",$_REQUEST['pn'])?'active':'';?>">
+              <a class="nav-link" target="_blank" href="http://<?php echo $_SERVER['HTTP_HOST'];?>:8080/">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                Eclipse CHE IDE
+              </a>
+            </li>
+		<!--
+            <li class="nav-item <?php echo preg_match("/^editor/",$_REQUEST['pn'])?'active':'';?>">
               <a class="nav-link" href="/i/editor">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 Online Editor
               </a>
             </li>
+		-->
 			<!--
             <li class="nav-item <?php echo preg_match("/^terminal/",$_REQUEST['pn'])?'active':'';?>">
               <a class="nav-link" href="/i/terminal" target="_blank">
