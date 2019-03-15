@@ -5,7 +5,7 @@ production.  As traffic increased you very quickly noticed performance issues.
 
 Before you can implement a change that increases capacity and performance, we need to follow the
 approved change management process.  Given that this is a lab environment you all have approval to
-create and implement changes within your automation (rather than logging a ticket and waitinf for
+create and implement changes within your automation (rather than logging a ticket and waiting for
 approval).
 
 We will be using the [Ansible URI module](http://docs.ansible.com/ansible/latest/uri_module.html) to interact
@@ -17,7 +17,7 @@ with the simple **TicketNow** application via its API.  Feel free to become fami
 
 ### Exercise 5.1 Creating a TicketsNow ticket via curl
 
-Using `curl`, create a new TicketsNow ticket.  
+Using `curl` in the CHE terminal, create a new TicketsNow ticket.  
 [Review the API documentation for creating a new ticket](/i/help_ticketnow_api_post_ticketnow).
 
 *Note - use the TicketsNow URL in your access sheet not the one specified in the documentation.*

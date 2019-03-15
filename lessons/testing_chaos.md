@@ -1,11 +1,18 @@
-# Lorem ipsum
+# Improving your automation by breaking it
+
+The infrastrujcture definitions you've made to date were built up organically as each new component
+was introduced.  While this leaves well documented infrastructure within code it likely makes
+many assumptions that may result in system outage during changes or a replatforming.
+
+The following several exercises will introduce change to the configuration you manage and challenge
+some of those assumptions on which you built your automation.
 
 
 <hr>
 
 ### Exercise 7.1 Rebooting your servers
 
-From Ansible Tower you can execute the job **Exercise 7.1 Reboot** to reboot your web and API servers.
+From Ansible Tower, execute the job **Exercise 7.1 Reboot** to reboot your web and API servers.
 
 Once the servers come online check if your services are accessible and online as expected.  
 Can you fix any gaps permanently by changing your automation?
@@ -13,7 +20,7 @@ Can you fix any gaps permanently by changing your automation?
 
 ### Exercise 7.2 Mystery
 
-From Ansible Tower you can execute the job **Exercise 7.2 Mystery**.
+From Ansible Tower, execute the job **Exercise 7.2 Mystery**.
 
 Test your application and identify if anything is misbehaving.  Execute your playbook to verify whether
 this fixes the problem.  

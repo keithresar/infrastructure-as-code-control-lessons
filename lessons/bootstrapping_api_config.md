@@ -124,6 +124,11 @@ I give up!
 On your web server in the file `/var/www/html/configure.php` there are two variables.
 Replace these with the IP address and port where your API server is listening.
 
+You can view the actual files for the web site by logging into your web server via ssh from the CHE terminal, or
+by reviewing the files from the Git repo where they are hosted:
+
+https://github.com/keithresar/infrastructure-as-code-web
+
 
 ** Target State **
 

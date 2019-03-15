@@ -11,7 +11,8 @@ performance and the overall cost of consuming downstream services.
 
 ### Exercise 6.1 Deploy Elasticache
 
-For our caching layer we make use of the native AWS Elasticache service.
+For our caching layer we make use of the native [AWS Elasticache](https://aws.amazon.com/elasticache/)
+ service.
 
 Navigate to the Ansible Tower instance and launch the **Exercise 6.1 Deploy Elasticache** job template.
 

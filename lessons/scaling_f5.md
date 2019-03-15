@@ -7,15 +7,16 @@ Note that the F5 is shared resource amongst all students and all students have
 administrator level access.  
 
 * Please do not break other students configurations.
-* Tag all your objects with your student name
+* Tag all your objects with your student username
 
 <hr>
 
 ### Exercise 5.6 Adding a load balancer to your inventory
 
-Modify the inventory file inside the `infrastructure-as-code/` directory.
+Modify the inventory file inside the `/projects/infrastructure-as-code/` directory.
 
-Add the private IP address associated with your F5 to the `[loadbalancer]` group.
+Add the private IP address associated with your F5 (listed in your Access Guide) to 
+the `[loadbalancer]` group.
 
 
 ### Exercise 5.7 Creating an API pool

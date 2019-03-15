@@ -17,7 +17,7 @@ from 8080 to 8081, 8082, etc.)
 
 ### Exercise 5.13 Permit traffic through the API security group
 
-Make sure traffic is permitting to flow inbound to the API server using the API security group
+Make sure traffic is permited to flow inbound to the API server using the API security group
 by adding any new ports the containers are listening on.
 
 Verify success by issuing a `curl api:8081` command from your web server.
