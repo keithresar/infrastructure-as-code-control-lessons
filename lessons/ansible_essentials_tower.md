@@ -23,7 +23,7 @@ Navigate to the Ansible Tower Web UI and login with your student credentials.
 
 <img src="/images/ansible_essentials/tower_login.png" style="margin-left:2em;max-width:90%;">
 
-After logging in you'll see the Tower dashbaord.  Since your student account has full admin
+After logging in you'll see the Tower dashboard.  Since your student account has full admin
 permissions you'll also be able to see activity from others in the class.
 
 <img src="/images/ansible_essentials/tower_dashboard.png" style="margin-left:2em;max-width:90%;">

@@ -13,38 +13,7 @@ on the api server.
 <hr>
 
 
-### Exercise 3.9  Getting Setup
-
-** Working Directory **
-
-All work moving for the rest of the class will build on the previous exercise.
-
-Your work will all reside within the `translation_wizard/` directory.
-
-If you need a little help along the way you may reference the solutions that exist for every
-exercise inside the `translation_wizard_SOLUTIONS/` directory.
-
-** Working files **
-
-Wherever possible we request you create an Ansible **Role** to package your automation rather than
-writing everything directly inside of a single playbook.
-
-Your final playbooks version should all reside in the existing `main.yml` file.
-
-To ease testing (especially as you get to later exercises) you may want to create alternate files for
-an easier *inner-loop* development instead of executing all of `main.yml`.  Alternately, effective use
-of **[tags](https://docs.ansible.com/ansible/latest/user_guide/playbooks_tags.html)** will allow you to develop more maintainable code overall.
-
-** Your First Practical Steps **
-
-Change to the `translation_wizard/` directory.
-
-Create a new role called `api`.
-
-Include this role in your `main.yml` playbook.
-
-
-### Exercise 3.10 Checkout API source code
+### Exercise 3.10 Checkout API source code and build container image
 
 The API source code is available from the following git repo:
 
@@ -71,8 +40,6 @@ Missing Package Errors
 SSL Connection Errors
 ! If you are getting errors related to SSL connections then change your parameters to force going via plaintext
 
-I give up!
-! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/api/3.10_build_image.yml.
 
 
 ### Exercise 3.11 Deploy Container onto API Server
@@ -115,8 +82,6 @@ Error messages deploying docker container regarding SSL or connection errors
 Error message indicating error pulling image due to http response to https client
 ! We're doing everything via plaintext in this lab, so you need to add an insure-registry flag to the docker daemon and make sure it restarted.  Add the following (you will need to change the IP of course) to /etc/sysconfig/docker: INSECURE_REGISTRY="--insecure-registry 10.10.12.117:5000".
 
-I give up!
-! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/api/3.11_deploy_one_image.yml.
 
 
 ### Exercise 3.12 Connecting web to API server
@@ -139,13 +104,19 @@ or the api -> languagelayer communication.
 <img src="/images/bootstrapping/web2.png" style="margin-left:2em;max-width:90%;">
 
 
+** Extra Credit **
+
+* Can you add another task that uses the URI module to verify change success?  You will want to hit the endpoint `http://{{ inventory_hostname }/api?url=http://www.yahoo.com`.  Make sure the status is 200 for success
+
+
+
 ** Hints **
 
 *Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
 
 
-Make sure you are working in the right role!
-! This work occurs in the web role not the api role from the earlier exercises
+Make sure you are working in the right server!
+! This work occurs in the on the web server and not the api server from the earlier exercises
 
 Verifying if API requests are going from web -> API
 ! login to API server and execute: 'docker logs -f api1' to show logs of incoming requests

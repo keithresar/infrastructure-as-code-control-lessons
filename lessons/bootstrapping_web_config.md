@@ -7,41 +7,9 @@ that you'll create in a later execrise.
 <hr>
 
 
-### Exercise 3.5  Getting Setup
-
-** Working Directory **
-
-All work moving for the rest of the class will build on the previous exercise.
-
-Your work will all reside within the `translation_wizard/` directory.
-
-If you need a little help along the way you may reference the solutions that exist for every
-exercise inside the `translation_wizard_SOLUTIONS/` directory.
-
-** Working files **
-
-Wherever possible we request you create an Ansible **Role** to package your automation rather than
-writing everything directly inside of a single playbook.
-
-Your final playbooks version should all point to the the existing `translation_wizard/main.yml` file.
-(Not one of the other `main.yml` files associated with your roles).
-
-To ease testing (especially as you get to later exercises) you may want to create alternate files for
-an easier *inner-loop* development instead of executing all of `main.yml`.  Alternately, effective use
-of **[tags](https://docs.ansible.com/ansible/latest/user_guide/playbooks_tags.html)** will allow you to develop more maintainable code overall.
-
-** Your First Practical Steps **
-
-Change to the `translation_wizard/` directory.
-
-Create a new role called `web`.
-
-Include this role in your `main.yml` playbook.
-
-
 ### Exercise 3.6 Install packages
 
-Install the following packages onto the server.  
+Install the following packages onto the web server.  
 
 * httpd
 * php
@@ -53,6 +21,13 @@ Also, make sure the web server is accessible via port 80 and that the service co
 A `curl` or web  browser request to the web server returns the test page you created in a previous exercise.
 
 
+** Extra Credit **
+
+* Find two ways for yum to install multiple packages (investigate `loop:` and the [yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html) documentation for the `name` parameter)
+* What would you do if you want the most recent version of your packages installed instead of just having any version present?
+* Can you rewrite this play to use a list of packages defined in a variable instead of hardcoded?
+
+
 ** Hints **
 
 *Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
@@ -60,8 +35,12 @@ A `curl` or web  browser request to the web server returns the test page you cre
 How do I install packages?
 ! Investigate the yum module
 
-I give up!
-! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/web/3.6_packages.yml.
+How do I install change the httpd port?
+! Investigate the lineinfile module
+
+How do I start the web server?
+! Investigate the service module
+
 
 
 ### Exercise 3.7 Deploy web site content
@@ -82,6 +61,11 @@ A web browser request to the web server returns the following:
 <img src="/images/bootstrapping/web1.png" style="margin-left:2em;max-width:90%;">
 
 
+** Extra Credit **
+
+* We don't want our `.git/` directory hosted on a web site, that would be crazy. How can we prevent `.git/` from being exposed (this could be another task, or maybe an option in the git module documentation)
+
+
 ** Hints **
 
 *Hints are hidden behind **spoiler** tags.  You can view the text associated with these hints by highlighting the space to the right of the *spoiler* placeholder text.*
@@ -89,8 +73,9 @@ A web browser request to the web server returns the following:
 How do I checkout code from a git repo?
 ! Investigate the git module
 
-I give up!
-! Look at the solutions in the file /projects/infrastructure-as-code-lab/translation_wizard_SOLUTIONS_SECTION_3/web/3.7_content.yml.
+I get an error about git not being in my path
+! You should install the git package with yum!
+
 
 
 ### Exercise 3.8 Test Functionality
